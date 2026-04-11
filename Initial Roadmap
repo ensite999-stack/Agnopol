@@ -1,0 +1,18 @@
+Agnopol initial roadmap (draft)
+Phase 0:
+- Concept definition
+- Architecture design
+
+Phase 1:
+- Minimal private transfer (commitment + ZK proof)
+- Basic deposit / withdraw
+
+Phase 2:
+- Selective disclosure (View Key)
+- Basic compliance hooks
+
+Phase 3:
+- Multi-ASP integration
+- Cross-chain support
+
+This is an early draft — feedback welcome.
