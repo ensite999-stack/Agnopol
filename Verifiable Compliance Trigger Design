@@ -1,0 +1,11 @@
+How should verifiable compliance triggers be designed?
+One of the core challenges:
+
+How do we prove that a decryption request is legally valid — without relying on pure trust?
+
+Questions:
+- Should this rely on off-chain legal oracles?
+- Can this be expressed as a cryptographic proof?
+- What are the attack vectors (fake triggers, coercion, jurisdiction conflicts)?
+
+This is a fundamental unsolved problem in compliant privacy systems.
