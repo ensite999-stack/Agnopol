@@ -1,0 +1,15 @@
+Attack this design: where does it break?
+Assume the following:
+
+- Commitment-based privacy
+- ZK validity proofs
+- Optional compliance layer
+
+Where would you attack?
+
+- Cryptography?
+- Incentives?
+- Governance?
+- Real-world enforcement?
+
+Brutal critique welcome.
