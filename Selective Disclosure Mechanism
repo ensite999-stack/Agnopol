@@ -1,0 +1,10 @@
+Best approach for per-transaction selective disclosure?
+Each transaction may include optional encrypted metadata.
+
+Questions:
+- Should View Keys be per-user or per-transaction?
+- How to securely share disclosure keys?
+- Can disclosure be time-limited or revocable?
+
+Goal:
+Fine-grained control without compromising privacy guarantees.
