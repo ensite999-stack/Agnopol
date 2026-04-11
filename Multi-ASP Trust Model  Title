@@ -1,0 +1,14 @@
+Designing a decentralized Association Set Provider (ASP) model
+Current model relies on ASPs to define "clean funds".
+
+Problems:
+- Centralization risk
+- False positives / false negatives
+- Political/regulatory capture
+
+Open questions:
+- Should we use N-of-M ASP validation?
+- How to weight trust between providers?
+- Can we make ASPs economically accountable?
+
+Goal: minimize trust while maintaining usability.
