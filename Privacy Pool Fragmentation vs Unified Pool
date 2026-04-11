@@ -1,0 +1,13 @@
+Unified privacy pool vs multiple pools — trade-offs?
+Agnopol proposes a unified privacy pool.
+
+Benefits:
+- Larger anonymity set
+
+Risks:
+- Cross-asset correlation
+- Liquidity shocks
+- Complexity
+
+Question:
+Is a unified pool always optimal, or should we segment by asset or size?
