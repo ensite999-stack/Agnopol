@@ -1,0 +1,15 @@
+Merkle Tree design for high-frequency private transactions
+We need an efficient commitment tree structure:
+
+Considerations:
+- Insert cost
+- Proof size
+- Update frequency
+- Scalability
+
+Options:
+- Incremental Merkle Tree
+- Sparse Merkle Tree
+- Hybrid models
+
+Trade-offs between gas cost and proving complexity need exploration.
