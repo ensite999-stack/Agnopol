@@ -1,0 +1,14 @@
+How to design MEV-resistant private transaction flow?
+Even with hidden transaction data, metadata leaks remain:
+
+- Timing
+- Gas patterns
+- Ordering
+
+Potential solutions:
+- Private mempool
+- Batch execution
+- Delayed settlement
+
+Question:
+What is the minimal viable approach that significantly reduces correlation attacks?
