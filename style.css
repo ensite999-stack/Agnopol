@@ -1,126 +1,155 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Space+Mono&display=swap');
 
 :root {
-    /* 配色方案：中子星蓝与太空深灰 */
-    --space-black: #050505;       /* 极黑深空 */
-    --deep-grey: #121212;        /* 碳素灰色 */
-    --neutron-blue: #00D1FF;     /* 中子星蓝：高能、冷冽 */
-    --neutron-glow: rgba(0, 209, 255, 0.3);
-    --text-primary: #FFFFFF;     /* 纯白文字：特赦组织风格 */
-    --text-dim: #666666;         /* 灰度文字 */
+    /* 核心色板 */
+    --void-black: #050505;        /* 深度真空 */
+    --neutron-blue: #00D1FF;      /* 高能中子星蓝 */
+    --ui-grey: #121214;           /* 模块底色 */
+    --border-alpha: rgba(255, 255, 255, 0.06);
+    --text-main: #FFFFFF;
+    --text-dim: rgba(255, 255, 255, 0.4);
     
+    /* 字体定义 */
     --font-head: 'Space Grotesk', sans-serif;
-    --font-code: 'Space Mono', monospace;
+    --font-data: 'Space Mono', monospace;
 }
 
 body {
     margin: 0;
-    background-color: var(--space-black);
-    color: var(--text-primary);
+    background-color: var(--void-black);
+    color: var(--text-main);
     font-family: var(--font-head);
     -webkit-font-smoothing: antialiased;
+    /* 极致细密的底层网格线 */
+    background-image: 
+        linear-gradient(var(--border-alpha) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-alpha) 1px, transparent 1px);
+    background-size: 60px 60px;
     overflow-x: hidden;
 }
 
-/* 宇宙背景：微弱的星点 */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: radial-gradient(circle at 1px 1px, #1a1a1a 1px, transparent 0);
-    background-size: 80px 80px;
-    z-index: -1;
-}
-
 .container {
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 3rem;
 }
 
-/* 导航：极简深空风格 */
+/* --- 系统头部 (HUD Navigation) --- */
 #header-wrap {
-    padding: 1.2rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(5, 5, 5, 0.9);
-    backdrop-filter: blur(20px);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-alpha);
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(25px);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
-/* 标题：特赦组织的视觉张力 */
-.hero-section {
-    padding: 10rem 0 6rem;
-    text-align: center;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 9vw, 5.5rem);
+.system-id {
+    font-family: var(--font-data);
     font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    letter-spacing: -3px;
-    /* 特赦组织风格的巨大白字 */
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--text-dim);
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    font-weight: 300;
-    line-height: 1.5;
-}
-
-/* 按钮：中子星蓝，突出但不突兀 */
-.cta-group {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-}
-
-.cta-button {
-    padding: 1.1rem 3.5rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border-radius: 2px; /* 几乎直角，显得严肃 */
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    font-family: var(--font-code);
-    text-transform: uppercase;
+    font-size: 1.1rem;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.cta-button.primary {
-    background: transparent;
-    color: var(--neutron-blue);
-    border: 1px solid var(--neutron-blue);
-    box-shadow: 0 0 15px var(--neutron-glow);
-}
-
-.cta-button.primary:hover {
+.status-pulse {
+    width: 5px;
+    height: 5px;
     background: var(--neutron-blue);
-    color: var(--space-black);
-    box-shadow: 0 0 30px var(--neutron-blue);
-    transform: scale(1.02);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--neutron-blue);
 }
 
-.cta-button.secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 1px solid #333;
+/* --- 非对称主布局 --- */
+.hero-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    min-height: 85vh;
+    align-items: center;
 }
 
-.cta-button.secondary:hover {
-    border-color: var(--text-primary);
-    background: rgba(255,255,255,0.05);
+.main-statement {
+    position: relative;
 }
 
-/* 页脚：深空黑灰 */
-footer {
-    padding: 6rem 0 3rem;
-    background: var(--deep-grey);
+.main-statement h1 {
+    font-size: clamp(3.5rem, 11vw, 8.5rem);
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -6px;
+    margin: 0;
+}
+
+.main-statement b {
+    display: block;
+    color: var(--neutron-blue);
+    /* 科技感的轻微外发光 */
+    text-shadow: 0 0 40px rgba(0, 209, 255, 0.25);
+}
+
+/* --- 参数侧栏 (Side Metrics) --- */
+.side-metrics {
+    border-left: 1px solid var(--border-alpha);
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 3rem;
+    font-family: var(--font-data);
+    font-size: 0.75rem;
     color: var(--text-dim);
-    border-top: 1px solid #1a1a1a;
+}
+
+.metric-row {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-alpha);
+    padding-bottom: 1rem;
+}
+
+.metric-label {
+    display: block;
+    color: var(--neutron-blue);
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+/* --- 模块化交互 (Action Units) --- */
+.action-cluster {
+    display: flex;
+    margin-top: 5rem;
+    border: 1px solid var(--border-alpha);
+    width: fit-content;
+}
+
+.action-unit {
+    padding: 1.2rem 3rem;
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--border-alpha);
+    color: var(--text-main);
+    font-family: var(--font-data);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-transform: uppercase;
+}
+
+.action-unit:last-child { border-right: none; }
+
+.action-unit:hover {
+    background: var(--neutron-blue);
+    color: var(--void-black);
+}
+
+/* --- 数据流页脚 --- */
+footer {
+    border-top: 1px solid var(--border-alpha);
+    padding: 5rem 0 3rem;
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    line-height: 2;
 }
