@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ lang: 'en' }">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agnopol – Articles</title>
+  <meta name="description" content="Articles, reports, and stories – Agnopol.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+  <!-- 页眉 -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch('partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-placeholder').innerHTML = html);
+  </script>
+
+  <!-- 主内容 -->
+  <main style="max-width:900px;margin:2rem auto;padding:1rem;">
+    <h2 style="text-align:center;" x-text="lang==='en' ? 'Articles & Reports' : '文章与报告'"></h2>
+
+    <!-- 发布文章按钮 -->
+    <div style="text-align:center;margin:1rem 0;">
+      <button x-text="lang==='en' ? 'Publish New Article' : '发布新文章'"></button>
+    </div>
+
+    <!-- 文章列表占位 -->
+    <section style="display:flex;flex-direction:column;gap:1rem;">
+      <article style="background-color:#121212;padding:1rem;border-radius:8px;">
+        <h3>Article Title 1</h3>
+        <p>Author: John Doe</p>
+        <p>Summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <a href="#" style="color:var(--accent-color);" x-text="lang==='en' ? 'Read More' : '阅读全文'"></a>
+      </article>
+
+      <article style="background-color:#121212;padding:1rem;border-radius:8px;">
+        <h3>Article Title 2</h3>
+        <p>Author: Jane Smith</p>
+        <p>Summary: Quisque sit amet est et sapien ullamcorper pharetra...</p>
+        <a href="#" style="color:var(--accent-color);" x-text="lang==='en' ? 'Read More' : '阅读全文'"></a>
+      </article>
+
+      <!-- 更多文章可动态生成 -->
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+  </script>
+
+</body>
+</html>
