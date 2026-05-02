@@ -3,60 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGNOPOL // INDIVIDUAL IMPACT NETWORK</title>
     
-    <title>Agnopol | Individual Impact & Global Change</title>
-    <meta name="description" content="Agnopol connects individuals to accumulate micro-actions into tangible change for humanity and the environment. Individual existence impacts the world.">
+    <meta name="description" content="Agnopol is a decentralized network for individual humanitarian and environmental action. Individual existence impacts the world.">
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Agnopol",
-      "alternateName": "阿格诺波尔",
-      "description": "An open community connecting individuals for decentralized humanitarian and environmental action."
-    }
-    </script>
-
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="header-wrap">
-        <div class="container" id="header-placeholder"></div>
-    </div>
-
-    <main class="container hero-section">
-        <h1 class="hero-title"
-            x-text="{en:'Individual existence impacts the world.', zh:'人的存在作用于世界。', zt:'人的存在作用於世界。'}[lang]"></h1>
-        
-        <p class="hero-subtitle"
-           x-text="{
-             en: 'Agnopol connects individuals to amplify personal action, turning every micro-effort into a force for global change.',
-             zh: 'Agnopol 连接个体，放大个人行动，让每一次微小努力都成为推动世界改变的力量。',
-             zt: 'Agnopol 連接個體，放大個人行動，讓每一次微小努力都成為推動世界改變的力量。'
-           }[lang]"></p>
-
-        <div class="cta-group">
-            <button class="cta-button primary" x-text="{en:'Get Started', zh:'开始行动', zt:'開始行動'}[lang]"></button>
-            <button class="cta-button secondary" x-text="{en:'Our Mission', zh:'品牌使命', zt:'品牌使命'}[lang]"></button>
+    <header id="header-wrap">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+            <div class="system-id">
+                <div class="status-pulse"></div>
+                AGNOPOL_INTERFACE
+            </div>
+            <nav style="display:flex; gap:3rem; font-family: var(--font-data); font-size: 0.8rem;">
+                <a href="articles.html" style="color:inherit; text-decoration:none;">[ REPORTS ]</a>
+                <a href="register.html" style="color:inherit; text-decoration:none;">[ LINK_UP ]</a>
+                <select x-model="lang" style="background:transparent; color:var(--neutron-blue); border:none; outline:none; cursor:pointer;">
+                    <option value="en">L_EN</option>
+                    <option value="zh">L_ZH</option>
+                </select>
+            </nav>
         </div>
+    </header>
+
+    <main class="container hero-layout">
+        <section class="main-statement">
+            <h1>
+                <span x-text="lang === 'en' ? 'Individual' : '人的存在'"></span>
+                <b x-text="lang === 'en' ? 'Impacts World.' : '作用于世界。'"></b>
+            </h1>
+            
+            <div class="action-cluster">
+                <button class="action-unit" x-text="lang === 'en' ? 'Initiate' : '初始化'"></button>
+                <button class="action-unit" x-text="lang === 'en' ? 'Mission' : '品牌使命'"></button>
+                <button class="action-unit" x-text="lang === 'en' ? 'Nodes' : '全球节点'"></button>
+            </div>
+        </section>
+
+        <aside class="side-metrics">
+            <div class="metric-row">
+                <span class="metric-label" x-text="lang === 'en' ? '// IDENTITY' : '// 核心识别'"></span>
+                DECENTRALIZED ACTION NETWORK
+            </div>
+            <div class="metric-row">
+                <span class="metric-label" x-text="lang === 'en' ? '// STATUS' : '// 连接状态'"></span>
+                ACTIVE CONNECTION ESTABLISHED
+            </div>
+            <div class="metric-row">
+                <span class="metric-label" x-text="lang === 'en' ? '// PROTOCOL' : '// 运行协议'"></span>
+                V2026.03.02_CORE
+            </div>
+        </aside>
     </main>
 
-    <div id="footer-wrap"></div>
+    <footer class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+            <div>
+                // NETWORK_SOURCE: AGNOPOL_SYS<br>
+                // OBJECTIVE: CONNECT_HUMAN_POTENTIAL
+            </div>
+            <div style="text-align: right;">
+                ACCESS_TERMINAL: IMPACT@AGNOPOL.XYZ<br>
+                &copy; 2026 INTERNAL_REGISTRY: 1777706237
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        async function loadPartials() {
-            const files = [
-                { id: 'header-placeholder', url: './header.html' },
-                { id: 'footer-wrap', url: './footer.html' }
-            ];
-            for (const file of files) {
-                const res = await fetch(file.url);
-                if (res.ok) document.getElementById(file.id).innerHTML = await res.text();
-            }
-        }
-        window.addEventListener('DOMContentLoaded', loadPartials);
-    </script>
 </body>
 </html>
