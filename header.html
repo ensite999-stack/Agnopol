@@ -1,29 +1,20 @@
-<header style="background-color:#0d0d0d;color:#ffffff;padding:1rem 0; border-bottom: 1px solid #333;">
-  <div style="max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 15px;">
+<div style="font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; color: var(--text-primary);">
+    AGNOPOL<span style="color: var(--neutron-blue);">_</span>
+</div>
+
+<nav style="display: flex; gap: 2.5rem; align-items: center;">
+    <a href="articles.html" style="text-decoration:none; color:inherit; font-size:0.85rem; letter-spacing: 1px;">ARTICLES</a>
+    <a href="register.html" style="text-decoration:none; color:inherit; font-size:0.85rem; letter-spacing: 1px;">JOIN</a>
     
-    <div style="font-size:1.5rem;font-weight:bold;color:#4ca3ff;">Agnopol</div>
-    
-    <nav style="display:flex; gap:15px; align-items:center;">
-      <a href="index.html" style="color:#ffffff;text-decoration:none;font-size:0.9rem;" 
-         x-text="{en:'Home',zh:'首页',zt:'首頁',fr:'Accueil',de:'Startseite',es:'Inicio',it:'Inizio',ko:'홈',ja:'ホーム'}[lang]"></a>
-      
-      <a href="articles.html" style="color:#ffffff;text-decoration:none;font-size:0.9rem;" 
-         x-text="{en:'Articles',zh:'文章',zt:'文章',fr:'Articles',de:'Artikel',es:'Artículos',it:'Articoli',ko:'기사',ja:'記事'}[lang]"></a>
-      
-      <a href="register.html" style="color:#ffffff;text-decoration:none;font-size:0.9rem;" 
-         x-text="{en:'Join Us',zh:'加入我们',zt:'加入我們',fr:'Rejoignez-nous',de:'Mitmachen',es:'Únete',it:'Unisciti',ko:'가입하기',ja:'参加する'}[lang]"></a>
-      
-      <select x-model="lang" style="background:#222; color:#fff; border:1px solid #444; border-radius:4px; padding:2px 5px; cursor:pointer;">
-        <option value="en">English</option>
-        <option value="zh">简体中文</option>
-        <option value="zt">繁體中文</option>
-        <option value="fr">Français</option>
-        <option value="de">Deutsch</option>
-        <option value="es">Español</option>
-        <option value="it">Italiano</option>
-        <option value="ko">한국어</option>
-        <option value="ja">日本語</option>
-      </select>
-    </nav>
-  </div>
-</header>
+    <select x-model="lang" style="background:transparent; color:var(--neutron-blue); border:1px solid #333; padding:4px 8px; font-family: 'Space Mono'; outline: none;">
+        <option value="en">EN</option>
+        <option value="zh">SC</option>
+        <option value="zt">TC</option>
+        <option value="fr">FR</option>
+        <option value="de">DE</option>
+        <option value="es">ES</option>
+        <option value="it">IT</option>
+        <option value="ko">KO</option>
+        <option value="ja">JA</option>
+    </select>
+</nav>
