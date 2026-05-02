@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ lang: 'en' }">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Agnopol – Human presence impacts the world</title>
+  <meta name="description" content="Agnopol: Connecting individuals to change the world through humanitarian and environmental action.">
+
+  <!-- SEO hreflang -->
+  <link rel="alternate" hreflang="en" href="/index.html">
+  <link rel="alternate" hreflang="zh-CN" href="/index.html">
+  <link rel="alternate" hreflang="zh-TW" href="/index.html">
+
+  <!-- 样式 -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Alpine.js（轻量） -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <script>
+    fetch('/partials/header.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+  </script>
+
+  <!-- MAIN -->
+  <main style="max-width:900px;margin:2rem auto;padding:1rem;text-align:center;">
+
+    <!-- 品牌 -->
+    <h1 style="font-size:2.5rem;color:#4ca3ff;">Agnopol</h1>
+
+    <p style="margin-top:1rem;font-size:1.2rem;"
+       x-text="
+       lang==='en' ? 'Human presence impacts the world' :
+       lang==='zh-cn' ? '人的存在作用于世界' :
+       lang==='zh-tw' ? '人的存在作用於世界' :
+       lang==='fr' ? 'La présence humaine impacte le monde' :
+       lang==='de' ? 'Menschliche Existenz wirkt auf die Welt' :
+       lang==='es' ? 'La presencia humana impacta el mundo' :
+       lang==='ja' ? '人の存在は世界に影響を与える' :
+       '인간의 존재는 세계에 영향을 미친다'
+       ">
+    </p>
+
+    <!-- 语言切换 -->
+    <div class="lang-switch" style="margin:1.5rem 0;">
+      <button @click="lang='en'">EN</button>
+      <button @click="lang='zh-cn'">简</button>
+      <button @click="lang='zh-tw'">繁</button>
+      <button @click="lang='fr'">FR</button>
+      <button @click="lang='de'">DE</button>
+      <button @click="lang='es'">ES</button>
+      <button @click="lang='ja'">JP</button>
+      <button @click="lang='ko'">KR</button>
+    </div>
+
+    <!-- 简介 -->
+    <p style="max-width:700px;margin:0 auto;"
+       x-text="
+       lang==='en' ? 'An open community connecting individuals to drive humanitarian and environmental change.' :
+       lang==='zh-cn' ? '一个连接个体，推动人道与环境改变的开放社区。' :
+       lang==='zh-tw' ? '一個連接個體，推動人道與環境改變的開放社群。' :
+       lang==='fr' ? 'Une communauté ouverte reliant les individus pour changer le monde.' :
+       lang==='de' ? 'Eine offene Gemeinschaft, die Individuen verbindet, um die Welt zu verändern.' :
+       lang==='es' ? 'Una comunidad abierta que conecta individuos para cambiar el mundo.' :
+       lang==='ja' ? '個人をつなぎ世界を変えるオープンコミュニティ。' :
+       '개인을 연결해 세상을 변화시키는 열린 커뮤니티'
+       ">
+    </p>
+
+    <!-- CTA -->
+    <div style="margin-top:2rem;">
+      <button onclick="location.href='/register.html'"
+        x-text="lang==='en' ? 'Join Us' : '加入我们'">
+      </button>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script>
+    fetch('/partials/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+
+  <!-- SEO JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Agnopol",
+    "url": "https://agnopol.xyz",
+    "description": "Human presence impacts the world"
+  }
+  </script>
+
+</body>
+</html>
