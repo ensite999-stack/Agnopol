@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ lang: 'en' }">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agnopol – Upload Report</title>
+  <meta name="description" content="Upload humanitarian or environmental reports on Agnopol.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+  <!-- 页眉 -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch('partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-placeholder').innerHTML = html);
+  </script>
+
+  <main style="max-width:700px;margin:2rem auto;padding:1rem;background-color:#121212;border-radius:8px;">
+    <h2 style="text-align:center;" x-text="lang==='en' ? 'Upload Report' : '上传报告'"></h2>
+
+    <form id="report-form" style="display:flex;flex-direction:column;gap:1rem;">
+      <div>
+        <label for="report-title" x-text="lang==='en' ? 'Report Title' : '报告标题'"></label>
+        <input type="text" id="report-title" name="report-title" placeholder="Your report title" required style="width:100%;padding:0.5rem;border-radius:4px;border:none;">
+      </div>
+
+      <div>
+        <label for="report-file" x-text="lang==='en' ? 'Upload File' : '上传文件'"></label>
+        <input type="file" id="report-file" name="report-file" accept=".pdf,.doc,.docx" required>
+      </div>
+
+      <div>
+        <label for="summary" x-text="lang==='en' ? 'Summary' : '摘要'"></label>
+        <textarea id="summary" name="summary" placeholder="Short summary of the report" required style="width:100%;height:150px;padding:0.5rem;border-radius:4px;border:none;"></textarea>
+      </div>
+
+      <button type="submit" x-text="lang==='en' ? 'Upload' : '上传'"></button>
+    </form>
+  </main>
+
+  <!-- 页脚 -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+  </script>
+
+</body>
+</html>
