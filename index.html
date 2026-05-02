@@ -3,71 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGNOPOL // INDIVIDUAL IMPACT NETWORK</title>
+    <title>AGNOPOL | Individual Impact System</title>
     
-    <meta name="description" content="Agnopol is a decentralized network for individual humanitarian and environmental action. Individual existence impacts the world.">
-    
+    <meta name="description" content="Agnopol connects individuals to amplify global humanitarian and environmental change. Individual existence impacts the world.">
+    <meta name="keywords" content="Agnopol, individual action, humanitarian change, environmental network, decentralized community">
+
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header id="header-wrap">
+    <header>
         <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
-            <div class="system-id">
-                <div class="status-pulse"></div>
-                AGNOPOL_INTERFACE
-            </div>
-            <nav style="display:flex; gap:3rem; font-family: var(--font-data); font-size: 0.8rem;">
-                <a href="articles.html" style="color:inherit; text-decoration:none;">[ REPORTS ]</a>
-                <a href="register.html" style="color:inherit; text-decoration:none;">[ LINK_UP ]</a>
-                <select x-model="lang" style="background:transparent; color:var(--neutron-blue); border:none; outline:none; cursor:pointer;">
-                    <option value="en">L_EN</option>
-                    <option value="zh">L_ZH</option>
+            <div class="brand-logotype">AGNOPOL</div>
+            <nav class="nav-cluster">
+                <a href="articles.html" style="color:inherit; text-decoration:none;">REPORTS</a>
+                <a href="register.html" style="color:inherit; text-decoration:none;">JOIN</a>
+                <select x-model="lang" style="background:transparent; color:white; border:1px solid #444; font-weight:900;">
+                    <option value="en">EN</option>
+                    <option value="zh">ZH</option>
                 </select>
             </nav>
         </div>
     </header>
 
-    <main class="container hero-layout">
-        <section class="main-statement">
-            <h1>
-                <span x-text="lang === 'en' ? 'Individual' : '人的存在'"></span>
-                <b x-text="lang === 'en' ? 'Impacts World.' : '作用于世界。'"></b>
-            </h1>
-            
-            <div class="action-cluster">
-                <button class="action-unit" x-text="lang === 'en' ? 'Initiate' : '初始化'"></button>
-                <button class="action-unit" x-text="lang === 'en' ? 'Mission' : '品牌使命'"></button>
-                <button class="action-unit" x-text="lang === 'en' ? 'Nodes' : '全球节点'"></button>
+    <main>
+        <section class="container hero-block">
+            <div class="statement-wrap">
+                <h1 x-text="lang === 'en' ? 'Individual Impacts World.' : '人的存在作用于世界。'"></h1>
+                <div class="sub-text" x-text="lang === 'en' ? 'Amplifying micro-actions into tangible change for humanity and the environment.' : '连接个体，放大个人行动，让每一次微小努力都成为推动世界改变的力量。'"></div>
             </div>
+            
+            <button class="action-trigger" x-text="lang === 'en' ? 'Take Action' : '开始行动'"></button>
         </section>
 
-        <aside class="side-metrics">
-            <div class="metric-row">
-                <span class="metric-label" x-text="lang === 'en' ? '// IDENTITY' : '// 核心识别'"></span>
-                DECENTRALIZED ACTION NETWORK
+        <section class="container mission-grid">
+            <div class="mission-item">
+                <h3 x-text="lang === 'en' ? 'Our Mission' : '品牌使命'"></h3>
+                <p x-text="lang === 'en' ? 'Connecting individuals to turn thoughts and creativity into real-world impact.' : '连接个体，让思想、行动和创造力可以直接影响周围环境与人类社会。'"></p>
             </div>
-            <div class="metric-row">
-                <span class="metric-label" x-text="lang === 'en' ? '// STATUS' : '// 连接状态'"></span>
-                ACTIVE CONNECTION ESTABLISHED
+            <div class="mission-item">
+                <h3 x-text="lang === 'en' ? 'Our Vision' : '建立初衷'"></h3>
+                <p x-text="lang === 'en' ? 'Building a sustainable, open community where decentralization empowers human potential.' : '构建可持续、开放、去中心化的社区，让每个人都能发挥力量。'"></p>
             </div>
-            <div class="metric-row">
-                <span class="metric-label" x-text="lang === 'en' ? '// PROTOCOL' : '// 运行协议'"></span>
-                V2026.03.02_CORE
-            </div>
-        </aside>
+        </section>
     </main>
 
-    <footer class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
+    <footer>
+        <div class="container" style="display:grid; grid-template-columns: 1fr 1fr;">
             <div>
-                // NETWORK_SOURCE: AGNOPOL_SYS<br>
-                // OBJECTIVE: CONNECT_HUMAN_POTENTIAL
+                // CORE: AGNOPOL_SYSTEM<br>
+                // OBJECTIVE: HUMANITARIAN_ENVIRONMENTAL_PROTECTION
             </div>
             <div style="text-align: right;">
-                ACCESS_TERMINAL: IMPACT@AGNOPOL.XYZ<br>
-                &copy; 2026 INTERNAL_REGISTRY: 1777706237
+                CONNECT: IMPACT@AGNOPOL.XYZ<br>
+                &copy; 2026 INTERNAL_ID_1777706237
             </div>
         </div>
     </footer>
