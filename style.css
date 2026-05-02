@@ -1,155 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Space+Mono&display=swap');
 
 :root {
-    /* 核心色板 */
-    --void-black: #050505;        /* 深度真空 */
-    --neutron-blue: #00D1FF;      /* 高能中子星蓝 */
-    --ui-grey: #121214;           /* 模块底色 */
-    --border-alpha: rgba(255, 255, 255, 0.06);
-    --text-main: #FFFFFF;
-    --text-dim: rgba(255, 255, 255, 0.4);
-    
-    /* 字体定义 */
-    --font-head: 'Space Grotesk', sans-serif;
-    --font-data: 'Space Mono', monospace;
+    --core-black: #000000;
+    --impact-yellow: #FFFF00; /* 核心警示色，代表真相与行动 */
+    --surface-white: #FFFFFF;
+    --muted-grey: #666666;
+    --border-line: #EEEEEE;
 }
 
 body {
     margin: 0;
-    background-color: var(--void-black);
-    color: var(--text-main);
-    font-family: var(--font-head);
+    background-color: var(--surface-white);
+    color: var(--core-black);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
     -webkit-font-smoothing: antialiased;
-    /* 极致细密的底层网格线 */
-    background-image: 
-        linear-gradient(var(--border-alpha) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border-alpha) 1px, transparent 1px);
-    background-size: 60px 60px;
-    overflow-x: hidden;
+}
+
+/* 装饰背景：极淡的几何网格，模拟测绘图纸的精确感 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(#ddd 0.5px, transparent 0.5px);
+    background-size: 30px 30px;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 0 2.5rem;
 }
 
-/* --- 系统头部 (HUD Navigation) --- */
-#header-wrap {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--border-alpha);
-    background: rgba(5, 5, 5, 0.85);
-    backdrop-filter: blur(25px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+/* --- 导航控制台 --- */
+header {
+    background: var(--core-black);
+    color: var(--surface-white);
+    padding: 1.8rem 0;
 }
 
-.system-id {
-    font-family: var(--font-data);
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
+.brand-logotype {
+    font-weight: 900;
+    font-size: 1.8rem;
+    letter-spacing: -1.5px;
+    background: var(--impact-yellow);
+    color: var(--core-black);
+    padding: 0 8px;
+    display: inline-block;
+}
+
+.nav-cluster {
     display: flex;
-    align-items: center;
-    gap: 12px;
+    gap: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
-.status-pulse {
-    width: 5px;
-    height: 5px;
-    background: var(--neutron-blue);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--neutron-blue);
+/* --- 核心宣言区 (Hero) --- */
+.hero-block {
+    padding: 140px 0 100px;
 }
 
-/* --- 非对称主布局 --- */
-.hero-layout {
+.statement-wrap {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    min-height: 85vh;
-    align-items: center;
+    grid-template-columns: 1.2fr 1fr; /* 非对称平衡 */
+    gap: 60px;
+    align-items: end;
 }
 
-.main-statement {
-    position: relative;
-}
-
-.main-statement h1 {
-    font-size: clamp(3.5rem, 11vw, 8.5rem);
-    font-weight: 700;
+.statement-wrap h1 {
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    font-weight: 900;
     line-height: 0.85;
-    letter-spacing: -6px;
+    letter-spacing: -4px;
     margin: 0;
-}
-
-.main-statement b {
-    display: block;
-    color: var(--neutron-blue);
-    /* 科技感的轻微外发光 */
-    text-shadow: 0 0 40px rgba(0, 209, 255, 0.25);
-}
-
-/* --- 参数侧栏 (Side Metrics) --- */
-.side-metrics {
-    border-left: 1px solid var(--border-alpha);
-    height: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-left: 3rem;
-    font-family: var(--font-data);
-    font-size: 0.75rem;
-    color: var(--text-dim);
-}
-
-.metric-row {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border-alpha);
-    padding-bottom: 1rem;
-}
-
-.metric-label {
-    display: block;
-    color: var(--neutron-blue);
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-/* --- 模块化交互 (Action Units) --- */
-.action-cluster {
-    display: flex;
-    margin-top: 5rem;
-    border: 1px solid var(--border-alpha);
-    width: fit-content;
-}
-
-.action-unit {
-    padding: 1.2rem 3rem;
-    background: transparent;
-    border: none;
-    border-right: 1px solid var(--border-alpha);
-    color: var(--text-main);
-    font-family: var(--font-data);
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     text-transform: uppercase;
 }
 
-.action-unit:last-child { border-right: none; }
-
-.action-unit:hover {
-    background: var(--neutron-blue);
-    color: var(--void-black);
+.statement-wrap .sub-text {
+    font-size: 1.3rem;
+    border-left: 8px solid var(--impact-yellow);
+    padding-left: 30px;
+    color: var(--muted-grey);
+    margin-bottom: 10px;
 }
 
-/* --- 数据流页脚 --- */
+/* --- 行动单元按钮 --- */
+.action-trigger {
+    display: inline-block;
+    background: var(--core-black);
+    color: var(--surface-white);
+    padding: 22px 60px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border: none;
+    margin-top: 4rem;
+    cursor: pointer;
+    transition: 0.2s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.action-trigger:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* --- 使命模块 --- */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--border-line);
+    margin-top: 100px;
+}
+
+.mission-item {
+    padding: 60px;
+    border-right: 1px solid var(--border-line);
+}
+
+.mission-item:last-child { border-right: none; }
+
+.mission-item h3 {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--muted-grey);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.mission-item p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--core-black);
+}
+
+/* --- 页脚 --- */
 footer {
-    border-top: 1px solid var(--border-alpha);
-    padding: 5rem 0 3rem;
-    font-family: var(--font-data);
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    line-height: 2;
+    padding: 80px 0;
+    background: #fbfbfb;
+    border-top: 1px solid var(--border-line);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted-grey);
 }
