@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ lang: 'en' }">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agnopol – User Profile</title>
+  <meta name="description" content="User profile page – Agnopol.">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+  <!-- 页眉 -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch('partials/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-placeholder').innerHTML = html);
+  </script>
+
+  <!-- 主内容 -->
+  <main style="max-width:900px;margin:2rem auto;padding:1rem;">
+    <section style="background-color:#121212;padding:2rem;border-radius:8px;">
+      <h2 x-text="lang==='en' ? 'Your Profile' : '用户主页'"></h2>
+      
+      <div style="margin:1rem 0;">
+        <p x-text="lang==='en' ? 'Display Name: John Doe' : '用户名: 张三'"></p>
+        <p x-text="lang==='en' ? 'Email: impact@agnopol.xyz' : '邮箱: impact@agnopol.xyz'"></p>
+      </div>
+
+      <!-- 用户功能占位 -->
+      <div style="margin-top:2rem;">
+        <h3 x-text="lang==='en' ? 'Actions' : '操作'"></h3>
+        <ul>
+          <li x-text="lang==='en' ? 'Publish Article / Report' : '发布文章 / 报告'"></li>
+          <li x-text="lang==='en' ? 'Share Story' : '分享故事'"></li>
+          <li x-text="lang==='en' ? 'Sign / Support Campaigns' : '联名签署 / 支持行动'"></li>
+          <li x-text="lang==='en' ? 'Participate in Events' : '参与线下活动'"></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('partials/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+  </script>
+
+</body>
+</html>
