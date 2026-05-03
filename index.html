@@ -4,131 +4,190 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agnopol</title>
+<title>Agnopol — Individual actions shaping the world</title>
+<meta name="description" content="A decentralized network connecting individual actions to real-world impact.">
+
+<link rel="canonical" href="https://agnopol.xyz/">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="en" href="https://agnopol.xyz/en/">
+<link rel="alternate" hreflang="fr" href="https://agnopol.xyz/fr/">
+<link rel="alternate" hreflang="de" href="https://agnopol.xyz/de/">
+<link rel="alternate" hreflang="es" href="https://agnopol.xyz/es/">
+<link rel="alternate" hreflang="it" href="https://agnopol.xyz/it/">
+<link rel="alternate" hreflang="ja" href="https://agnopol.xyz/ja/">
+<link rel="alternate" hreflang="ko" href="https://agnopol.xyz/ko/">
+<link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
+<link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
+
+<!-- GEO -->
+<meta name="geo.region" content="GLOBAL">
+<meta name="geo.placename" content="Worldwide">
+<meta name="ICBM" content="0,0">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agnopol">
+<meta property="og:description" content="Individual actions shaping the world.">
+<meta property="og:image" content="https://agnopol.xyz/og.jpg">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Agnopol",
+ "url": "https://agnopol.xyz",
+ "email": "contact@agnopol.xyz"
+}
+</script>
 
 <style>
 :root{
-    --blue:#4DA3FF;
-    --green:#2F6B4F;
-    --text:#0F1720;
-    --sub:#6B7280;
-    --border:rgba(0,0,0,0.06);
+--blue:#4DA3FF;
+--green:#2F6B4F;
+--text:#0F1720;
+--sub:#6B7280;
+--border:rgba(0,0,0,0.06);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Helvetica;
-    background:#fff;
-    color:var(--text);
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Helvetica;
+background:#fff;
+color:var(--text);
 }
 
 /* HEADER */
 header{
-    position:sticky;
-    top:0;
-    background:#fff;
-    border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+background:#fff;
+border-bottom:1px solid var(--border);
 }
 .header-inner{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:14px 20px;
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 20px;
 }
 .logo{
-    font-size:1.6rem;
-    font-weight:800;
-    letter-spacing:-0.5px;
+font-weight:800;
+font-size:1.6rem;
 }
-
-/* MENU */
 .menu{
-    display:flex;
-    gap:16px;
-    font-size:0.9rem;
+display:flex;
+gap:18px;
+font-size:0.9rem;
 }
 .menu a{
-    text-decoration:none;
-    color:var(--text);
+text-decoration:none;
+color:var(--text);
+}
+
+/* HERO */
+.hero{
+height:320px;
+background:linear-gradient(135deg,#4DA3FF,#2F6B4F);
+display:flex;
+align-items:flex-end;
+padding:20px;
+color:#fff;
+}
+.hero h1{
+font-size:1.5rem;
+font-weight:700;
 }
 
 /* TAGLINE */
 .tagline{
-    text-align:center;
-    margin:60px 20px 20px;
+text-align:center;
+margin:30px 0;
 }
 .tagline a{
-    text-decoration:none;
-    color:var(--sub);
-    font-size:0.95rem;
+text-decoration:none;
+color:var(--sub);
 }
 
 /* SECTION */
 .container{
-    max-width:1100px;
-    margin:auto;
-    padding:0 20px;
+max-width:1100px;
+margin:auto;
+padding:0 20px;
 }
 .section-title{
-    margin:40px 0 20px;
-    font-weight:600;
+margin:40px 0 20px;
 }
 
-/* ACTION PLACEHOLDER */
-.action-placeholder{
-    border:1px dashed var(--border);
-    border-radius:12px;
-    padding:30px;
-    text-align:center;
-    color:var(--sub);
+/* PLACEHOLDER */
+.placeholder{
+border:1px dashed var(--border);
+border-radius:12px;
+padding:30px;
+text-align:center;
+color:var(--sub);
 }
 
 /* FOOTER */
 footer{
-    background:#0B0D10;
-    color:#9CA3AF;
-    padding:50px 20px;
-    margin-top:80px;
+background:#0B0D10;
+color:#9CA3AF;
+margin-top:80px;
+position:relative;
+overflow:hidden;
 }
+
+.footer-bg{
+position:absolute;
+bottom:10px;
+right:20px;
+font-size:6rem;
+font-weight:900;
+color:white;
+opacity:0.04;
+filter:blur(1px);
+}
+
 .footer-inner{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:30px;
+max-width:1100px;
+margin:auto;
+padding:50px 20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:30px;
 }
 
-/* left */
 .footer-left{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    font-size:0.85rem;
+display:flex;
+flex-direction:column;
+gap:10px;
+font-size:0.85rem;
 }
+
 .footer-left a{
-    color:#9CA3AF;
-    text-decoration:none;
+color:#9CA3AF;
+text-decoration:none;
 }
 
-/* right brand */
-.footer-brand{
-    font-size:2rem;
-    font-weight:900;
-    letter-spacing:-1px;
-    color:white;
-    opacity:0.9;
-    filter:blur(0.3px);
-}
-
-/* language */
 .footer-lang{
-    margin-top:20px;
-    font-size:0.8rem;
-    color:#6B7280;
+margin-top:20px;
+font-size:0.8rem;
+color:#6B7280;
+}
+
+.footer-contact{
+margin-top:10px;
+font-size:0.85rem;
+}
+
+.footer-copy{
+margin-top:20px;
+font-size:0.75rem;
+color:#6B7280;
 }
 </style>
 </head>
@@ -137,68 +196,71 @@ footer{
 
 <header>
 <div class="header-inner">
-    <div class="logo">Agnopol</div>
+<div class="logo">Agnopol</div>
 
-    <nav class="menu">
-        <a href="#">Join</a>
-        <a href="about.html">About</a>
-        <a href="#">Donate</a>
-        <a href="#">Contact</a>
-    </nav>
+<nav class="menu">
+<a href="#">Join</a>
+<a href="about.html">About</a>
+<a href="#">Donate</a>
+<a href="#">Contact</a>
+</nav>
 </div>
 </header>
 
-<!-- TAGLINE (可点击) -->
-<div class="tagline">
-    <a href="about.html">
-        存在之处，世界正在成为世界
-    </a>
-</div>
-
-<!-- CURRENT ACTION (占位) -->
-<section class="container">
-<h2 class="section-title">Current Actions</h2>
-
-<div class="action-placeholder">
-    Actions will appear here.
-</div>
+<!-- HERO -->
+<section class="hero">
+<h1>Global actions will appear here</h1>
 </section>
 
-<!-- FEED (占位) -->
+<!-- TAGLINE -->
+<div class="tagline">
+<a href="about.html">
+存在之处，世界正在成为世界
+</a>
+</div>
+
+<!-- ACTION -->
+<section class="container">
+<h2 class="section-title">Current Actions</h2>
+<div class="placeholder">Content will be available after launch</div>
+</section>
+
+<!-- LIVE -->
 <section class="container">
 <h2 class="section-title">Live Activity</h2>
-
-<div class="action-placeholder">
-    Real-time activity will appear here.
-</div>
+<div class="placeholder">Real-time actions will appear here</div>
 </section>
 
 <footer>
+
+<div class="footer-bg">AGNOPOL</div>
+
 <div class="footer-inner">
 
 <div class="footer-left">
-    <a href="about.html">About</a>
-    <a href="#">Archive</a>
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms of Use</a>
-    <a href="#">Legal</a>
-    <a href="#">Contact</a>
-    <a href="#">Rights Statement</a>
+<a href="about.html">About</a>
+<a href="#">Archive</a>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Use</a>
+<a href="#">Legal</a>
+<a href="#">Contact</a>
 
-    <div class="footer-lang">
-        EN · FR · DE · ES · IT · JA · KO · ZH-HANT
-    </div>
-
-    <div style="margin-top:10px;font-size:0.8rem;">
-        contact@agnopol.xyz
-    </div>
+<div class="footer-lang">
+EN · FR · DE · ES · IT · JA · KO · ZH-HANT
 </div>
 
-<div class="footer-brand">
-    AGNOPOL
+<div class="footer-contact">
+Contact us: contact@agnopol.xyz
+</div>
+
+<div class="footer-copy">
+© 2026 Agnopol. All rights reserved.
 </div>
 
 </div>
+
+</div>
+
 </footer>
 
 </body>
