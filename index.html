@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agnopol — 存在之处，世界正在成为世界</title>
-<meta name="description" content="连接个体行动与现实世界影响的去中心化网络。">
+<title>Agnopol — Individual actions shaping the world</title>
+<meta name="description" content="A decentralized network connecting individual actions to real-world impact.">
 
 <style>
 /* === CSS Variables & Reset === */
@@ -19,7 +19,7 @@
   --bg-light: #f4f4f4;
   --white: #ffffff;
   --border-color: #dddddd;
-  --accent-pink: #e6007e; /* Used sparingly for 'New' badges like Avaaz */
+  --accent-pink: #e6007e;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,26 +55,97 @@ header {
   font-weight: 900;
   color: var(--sea-blue);
   letter-spacing: -0.5px;
+  text-transform: uppercase;
 }
-.header-nav {
+
+/* Header Controls: Lang Switcher & Hamburger */
+.header-controls {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 25px;
 }
-.header-nav a {
-  font-size: 1rem;
-  font-weight: 600;
+
+/* Avaaz Style Language Dropdown */
+.lang-switcher {
+  position: relative;
+}
+.lang-select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--text-main);
-  transition: color 0.2s;
+  cursor: pointer;
+  padding-right: 15px;
+  text-transform: uppercase;
 }
-.header-nav a:hover {
+.lang-select:focus { outline: none; }
+.lang-switcher::after {
+  content: '▼';
+  font-size: 0.6rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-main);
+}
+
+/* Custom Hamburger Menu Button */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns lines to the right */
+  gap: 5px;
+  padding: 5px;
+}
+.hamburger .line {
+  height: 3px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger .line-1 { width: 20px; background-color: #000000; } /* Black, short */
+.hamburger .line-2 { width: 20px; background-color: var(--sea-blue); } /* Sea Blue, short */
+.hamburger .line-3 { width: 30px; background-color: var(--pine-green); } /* Pine Green, long */
+
+/* Dropdown Menu */
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  overflow: hidden;
+}
+.nav-menu.active {
+  display: flex;
+}
+.nav-menu a {
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+.nav-menu a:last-child { border-bottom: none; }
+.nav-menu a:hover {
+  background: var(--bg-light);
   color: var(--sea-blue);
 }
 
-/* === Hero Section (Avaaz Style) === */
+/* === Hero Section === */
 .hero {
   position: relative;
   background-color: var(--bg-light);
-  /* Placeholder for an actual background image */
   background-image: linear-gradient(rgba(0, 91, 130, 0.8), rgba(0, 91, 130, 0.8)), url('https://via.placeholder.com/1920x800?text=Background+Image');
   background-size: cover;
   background-position: center;
@@ -111,7 +182,7 @@ header {
   text-decoration: underline;
 }
 
-/* Action Box (Petition Form) */
+/* Action Box */
 .action-box {
   width: 100%;
   max-width: 400px;
@@ -129,12 +200,8 @@ header {
   font-weight: bold;
   text-align: center;
 }
-.action-box-body {
-  padding: 20px;
-}
-.progress-container {
-  margin-bottom: 15px;
-}
+.action-box-body { padding: 20px; }
+.progress-container { margin-bottom: 15px; }
 .progress-text {
   display: flex;
   justify-content: space-between;
@@ -143,223 +210,57 @@ header {
   font-weight: bold;
 }
 .progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
+  width: 100%; height: 10px; background: #e0e0e0; border-radius: 5px; overflow: hidden;
 }
-.progress-fill {
-  width: 65%;
-  height: 100%;
-  background: var(--pine-green);
-}
+.progress-fill { width: 65%; height: 100%; background: var(--pine-green); }
 .action-input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 10px;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  font-size: 1rem;
+  width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;
 }
 .action-btn {
-  width: 100%;
-  padding: 15px;
-  background: var(--pine-green);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.2s;
+  width: 100%; padding: 15px; background: var(--pine-green); color: var(--white); border: none; border-radius: 4px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: background 0.2s;
 }
-.action-btn:hover {
-  background: var(--pine-green-hover);
-}
+.action-btn:hover { background: var(--pine-green-hover); }
 
 /* === Campaigns Section === */
-.campaigns-section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+.campaigns-section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
 .section-header {
-  margin-bottom: 30px;
-  font-size: 1.8rem;
-  color: var(--sea-blue);
-  border-left: 6px solid var(--pine-green);
-  padding-left: 15px;
+  margin-bottom: 30px; font-size: 1.8rem; color: var(--sea-blue); border-left: 6px solid var(--pine-green); padding-left: 15px;
 }
 .campaign-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
 .campaign-card {
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
+  border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column;
 }
 .campaign-img {
-  width: 100%;
-  height: 180px;
-  background-color: #e9ecef;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-gray);
+  width: 100%; height: 180px; background-color: #e9ecef; display: flex; align-items: center; justify-content: center; color: var(--text-gray);
 }
-.campaign-body {
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.campaign-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.campaign-text {
-  font-size: 0.95rem;
-  color: var(--text-gray);
-  margin-bottom: 15px;
-  flex: 1;
-}
-.campaign-link {
-  color: var(--sea-blue);
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-}
-.campaign-link::after {
-  content: ' →';
-  margin-left: 5px;
-}
+.campaign-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.campaign-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+.campaign-text { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 15px; flex: 1; }
+.campaign-link { color: var(--sea-blue); font-weight: 600; display: inline-flex; align-items: center; }
+.campaign-link::after { content: ' →'; margin-left: 5px; }
 
-/* === Footer (1:1 Avaaz Reference) === */
-footer {
-  background-color: var(--avaaz-dark);
-  color: #fff;
-  padding: 40px 20px;
-  font-size: 0.95rem;
-}
-.footer-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* Footer Top: Links and Social */
+/* === Footer === */
+footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; font-size: 0.95rem; }
+.footer-container { max-width: 1100px; margin: 0 auto; }
 .footer-top {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; margin-bottom: 30px;
 }
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.footer-links a {
-  color: #fff;
-  transition: opacity 0.2s;
-}
-.footer-links a:hover {
-  opacity: 0.7;
-}
-.badge-new {
-  background: var(--accent-pink);
-  color: #fff;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 3px;
-  margin-left: 8px;
-  font-weight: bold;
-}
-.badge-plus {
-  background: var(--accent-pink);
-  color: #fff;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  margin-left: 5px;
-  font-weight: bold;
-}
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links a { color: #fff; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 0.7; }
+.badge-new { background: var(--accent-pink); color: #fff; font-size: 0.7rem; padding: 2px 6px; border-radius: 3px; margin-left: 8px; font-weight: bold; }
+.badge-plus { background: var(--accent-pink); color: #fff; border-radius: 50%; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; margin-left: 5px; font-weight: bold; }
+.footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; }
+.social-icons { display: flex; gap: 10px; }
+.social-icon { width: 36px; height: 36px; border: 1px solid #fff; display: flex; align-items: center; justify-content: center; border-radius: 2px; font-weight: bold; font-size: 1.2rem; }
+.footer-logo { font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; color: #fff; }
+.footer-copyright { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
 
-.footer-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 20px;
-}
-.social-icons {
-  display: flex;
-  gap: 10px;
-}
-.social-icon {
-  width: 36px;
-  height: 36px;
-  border: 1px solid #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 2px;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-.footer-logo {
-  font-size: 2.2rem;
-  font-weight: 900;
-  letter-spacing: -1px;
-  color: #fff;
-}
-
-/* Footer Bottom: Languages and Copyright */
-.footer-languages {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px 20px;
-  margin-bottom: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-.footer-languages a {
-  color: #fff;
-}
-.footer-languages a:hover {
-  text-decoration: underline;
-}
-.footer-copyright {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.85rem;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .footer-top {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-  }
-  .footer-right {
-    align-items: flex-start;
-    width: 100%;
-  }
-  .social-icons {
-    flex-wrap: wrap;
-  }
+  .footer-top { flex-direction: column-reverse; align-items: flex-start; }
+  .footer-right { align-items: flex-start; width: 100%; }
 }
 </style>
 </head>
@@ -368,40 +269,60 @@ footer {
 
 <header>
   <div class="header-container">
-    <div class="header-logo">阿格诺波尔</div>
-    <nav class="header-nav">
-      <a href="#">加入</a>
-      <a href="#">关于</a>
-    </nav>
+    <div class="header-logo">Agnopol</div>
+    <div class="header-controls">
+      
+      <div class="lang-switcher">
+        <select class="lang-select" id="languageSelector" onchange="setLang(this.value)">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="it">Italiano</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="zh">繁體中文</option>
+        </select>
+      </div>
+
+      <button class="hamburger" onclick="toggleMenu()">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#" data-i18n="menu_about">About Us</a>
+        <a href="#" data-i18n="menu_donate">Donate</a>
+        <a href="#" data-i18n="menu_join">Join Us</a>
+      </nav>
+
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-container">
     <div class="hero-content">
-      <h1 class="hero-title">巴黎气候协议是我们对抗气候变迁至今取得的最大胜利</h1>
-      <p class="hero-desc">漂亮地展现人类团结、以及我们的倡议运动是催生此的全球公众动能。故事是这样的...</p>
-      <a href="#" class="hero-readmore">看更多精彩焦点 ›</a>
+      <h1 class="hero-title" data-i18n="hero_title">The Paris Agreement is our greatest victory in the fight against climate change</h1>
+      <p class="hero-desc" data-i18n="hero_desc">A beautiful display of human solidarity, and the global public momentum driven by our movement made it happen. Here is the story...</p>
+      <a href="#" class="hero-readmore" data-i18n="hero_more">Read more highlights ›</a>
     </div>
     
     <div class="action-box">
-      <div class="action-box-header">
-        加入全球行动
-      </div>
+      <div class="action-box-header" data-i18n="action_header">Join the Global Action</div>
       <div class="action-box-body">
         <div class="progress-container">
           <div class="progress-text">
-            <span>已联署: 1,204,500</span>
-            <span>目标: 1,500,000</span>
+            <span data-i18n="action_signed">Signed: 1,204,500</span>
+            <span data-i18n="action_target">Target: 1,500,000</span>
           </div>
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
+          <div class="progress-bar"><div class="progress-fill"></div></div>
         </div>
         <form action="#" method="POST">
-          <input type="email" class="action-input" placeholder="输入您的电子邮件地址" required>
-          <input type="text" class="action-input" placeholder="姓名" required>
-          <button type="submit" class="action-btn">立即联署</button>
+          <input type="email" class="action-input" data-placeholder="action_email" placeholder="Enter your email address" required>
+          <input type="text" class="action-input" data-placeholder="action_name" placeholder="Name" required>
+          <button type="submit" class="action-btn" data-i18n="action_btn">Sign Now</button>
         </form>
       </div>
     </div>
@@ -409,30 +330,30 @@ footer {
 </section>
 
 <section class="campaigns-section">
-  <h2 class="section-header">对准确性的承诺</h2>
+  <h2 class="section-header" data-i18n="camp_header">Commitment to Accuracy</h2>
   <div class="campaign-grid">
     <div class="campaign-card">
-      <div class="campaign-img">图片占位符</div>
+      <div class="campaign-img" data-i18n="img_placeholder">Image Placeholder</div>
       <div class="campaign-body">
-        <h3 class="campaign-title">捍卫人权</h3>
-        <p class="campaign-text">与保护弱势群体的抗疫一线人员站在一起，团结一致。</p>
-        <a href="#" class="campaign-link">了解更多</a>
+        <h3 class="campaign-title" data-i18n="camp1_title">Defend Human Rights</h3>
+        <p class="campaign-text" data-i18n="camp1_desc">Stand in solidarity with frontline workers protecting vulnerable communities.</p>
+        <a href="#" class="campaign-link" data-i18n="camp_link">Learn more</a>
       </div>
     </div>
     <div class="campaign-card">
-      <div class="campaign-img">图片占位符</div>
+      <div class="campaign-img" data-i18n="img_placeholder">Image Placeholder</div>
       <div class="campaign-body">
-        <h3 class="campaign-title">保护全球森林</h3>
-        <p class="campaign-text">敦促领导人在即将举行的峰会前承诺实现零毁林目标。</p>
-        <a href="#" class="campaign-link">了解更多</a>
+        <h3 class="campaign-title" data-i18n="camp2_title">Protect Global Forests</h3>
+        <p class="campaign-text" data-i18n="camp2_desc">Urge leaders to commit to zero deforestation targets before the upcoming summit.</p>
+        <a href="#" class="campaign-link" data-i18n="camp_link">Learn more</a>
       </div>
     </div>
     <div class="campaign-card">
-      <div class="campaign-img">图片占位符</div>
+      <div class="campaign-img" data-i18n="img_placeholder">Image Placeholder</div>
       <div class="campaign-body">
-        <h3 class="campaign-title">清洁海洋倡议</h3>
-        <p class="campaign-text">支持具有约束力的条约，以结束国际水域的塑料污染。</p>
-        <a href="#" class="campaign-link">了解更多</a>
+        <h3 class="campaign-title" data-i18n="camp3_title">Clean Ocean Initiative</h3>
+        <p class="campaign-text" data-i18n="camp3_desc">Support the binding treaty to end plastic pollution in our international waters.</p>
+        <a href="#" class="campaign-link" data-i18n="camp_link">Learn more</a>
       </div>
     </div>
   </div>
@@ -442,14 +363,14 @@ footer {
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-links">
-        <a href="#">我的档案</a>
-        <a href="#">关于我们</a>
-        <a href="#">工作机会</a>
-        <a href="#">隐私权政策 <span class="badge-new">更新版</span></a>
-        <a href="#">使用者条款</a>
+        <a href="#" data-i18n="foot_profile">My Profile</a>
+        <a href="#" data-i18n="foot_about">About Us</a>
+        <a href="#" data-i18n="foot_jobs">Careers</a>
+        <a href="#"><span data-i18n="foot_privacy">Privacy Policy</span> <span class="badge-new" data-i18n="foot_new">NEW</span></a>
+        <a href="#" data-i18n="foot_terms">Terms of Use</a>
         <a href="#">Imprint</a>
-        <a href="mailto:contact@agnopol.xyz">联络Agnopol</a>
-        <a href="#">发起联署 <span class="badge-plus">+</span></a>
+        <a href="mailto:contact@agnopol.xyz" data-i18n="foot_contact">Contact Agnopol</a>
+        <a href="#"><span data-i18n="foot_start">Start a Petition</span> <span class="badge-plus">+</span></a>
       </div>
       
       <div class="footer-right">
@@ -463,31 +384,173 @@ footer {
         <div class="footer-logo">AGNOPOL</div>
       </div>
     </div>
-
-    <div class="footer-languages">
-      <a href="#">ENGLISH</a>
-      <a href="#">العربية</a>
-      <a href="#">DEUTSCH</a>
-      <a href="#">РУССКИЙ</a>
-      <a href="#">FRANÇAIS</a>
-      <a href="#">ESPAÑOL</a>
-      <a href="#">PORTUGUÊS</a>
-      <a href="#">한국어</a>
-      <a href="#">日本語</a>
-      <a href="#">NEDERLANDS</a>
-      <a href="#">ITALIANO</a>
-      <a href="#">עברית</a>
-      <a href="#">TÜRKÇE</a>
-      <a href="#">POLSKI</a>
-      <a href="#">ROMÂNĂ</a>
-      <a href="#">ΕΛΛΗΝΙΚΑ</a>
-    </div>
-
-    <div class="footer-copyright">
-      © 2026 Agnopol.org. 版权所有。
+    <div class="footer-copyright" data-i18n="foot_copy">
+      © 2026 Agnopol.org. All rights reserved.
     </div>
   </div>
 </footer>
+
+<script>
+// Toggle Mobile Menu
+function toggleMenu() {
+  const menu = document.getElementById('navMenu');
+  menu.classList.toggle('active');
+}
+
+// Multi-language Dictionary
+const dict = {
+  en: {
+    menu_about: "About Us", menu_donate: "Donate", menu_join: "Join Us",
+    hero_title: "The Paris Agreement is our greatest victory in the fight against climate change",
+    hero_desc: "A beautiful display of human solidarity, and the global public momentum driven by our movement made it happen. Here is the story...",
+    hero_more: "Read more highlights ›", action_header: "Join the Global Action",
+    action_signed: "Signed: 1,204,500", action_target: "Target: 1,500,000",
+    action_email: "Enter your email address", action_name: "Name", action_btn: "Sign Now",
+    camp_header: "Commitment to Accuracy", img_placeholder: "Image Placeholder",
+    camp1_title: "Defend Human Rights", camp1_desc: "Stand in solidarity with frontline workers protecting vulnerable communities.",
+    camp2_title: "Protect Global Forests", camp2_desc: "Urge leaders to commit to zero deforestation targets before the upcoming summit.",
+    camp3_title: "Clean Ocean Initiative", camp3_desc: "Support the binding treaty to end plastic pollution in our international waters.",
+    camp_link: "Learn more", foot_profile: "My Profile", foot_about: "About Us",
+    foot_jobs: "Careers", foot_privacy: "Privacy Policy", foot_new: "NEW", foot_terms: "Terms of Use",
+    foot_contact: "Contact Agnopol", foot_start: "Start a Petition", foot_copy: "© 2026 Agnopol.org. All rights reserved."
+  },
+  zh: {
+    menu_about: "關於我們", menu_donate: "捐贈", menu_join: "加入我們",
+    hero_title: "巴黎氣候協議是我們對抗氣候變遷至今取得的最大勝利",
+    hero_desc: "漂亮地展現人類團結、以及我們的倡議運動是催生此的全球公眾動能。故事是這樣的...",
+    hero_more: "看更多精彩焦點 ›", action_header: "加入全球行動",
+    action_signed: "已聯署: 1,204,500", action_target: "目標: 1,500,000",
+    action_email: "輸入您的電子郵件地址", action_name: "姓名", action_btn: "立即聯署",
+    camp_header: "對準確性的承諾", img_placeholder: "圖片佔位符",
+    camp1_title: "捍衛人權", camp1_desc: "與保護弱勢群體的抗疫一線人員站在一起，團結一致。",
+    camp2_title: "保護全球森林", camp2_desc: "敦促領導人在即將舉行的峰會前承諾實現零毀林目標。",
+    camp3_title: "清潔海洋倡議", camp3_desc: "支持具有約束力的條約，以結束國際水域的塑料污染。",
+    camp_link: "了解更多", foot_profile: "我的檔案", foot_about: "關於我們",
+    foot_jobs: "工作機會", foot_privacy: "隱私權政策", foot_new: "更新版", foot_terms: "使用者條款",
+    foot_contact: "聯絡Agnopol", foot_start: "發起聯署", foot_copy: "© 2026 Agnopol.org。版權所有。"
+  },
+  fr: {
+    menu_about: "À propos", menu_donate: "Faire un don", menu_join: "Rejoignez-nous",
+    hero_title: "L'Accord de Paris est notre plus grande victoire contre le changement climatique",
+    hero_desc: "Une belle démonstration de solidarité humaine, rendue possible par l'élan public mondial de notre mouvement.",
+    hero_more: "Lire plus de faits saillants ›", action_header: "Rejoignez l'action mondiale",
+    action_signed: "Signé: 1 204 500", action_target: "Objectif: 1 500 000",
+    action_email: "Entrez votre adresse e-mail", action_name: "Nom", action_btn: "Signer maintenant",
+    camp_header: "Engagement d'exactitude", img_placeholder: "Espace Image",
+    camp1_title: "Défendre les droits de l'homme", camp1_desc: "Soyez solidaire des travailleurs de première ligne qui protègent les communautés vulnérables.",
+    camp2_title: "Protéger les forêts mondiales", camp2_desc: "Exhortez les dirigeants à s'engager sur des objectifs de zéro déforestation.",
+    camp3_title: "Initiative Océan Propre", camp3_desc: "Soutenez le traité contraignant pour mettre fin à la pollution plastique.",
+    camp_link: "En savoir plus", foot_profile: "Mon profil", foot_about: "À propos",
+    foot_jobs: "Carrières", foot_privacy: "Politique de confidentialité", foot_new: "NOUVEAU", foot_terms: "Conditions d'utilisation",
+    foot_contact: "Contacter Agnopol", foot_start: "Lancer une pétition", foot_copy: "© 2026 Agnopol.org. Tous droits réservés."
+  },
+  de: {
+    menu_about: "Über uns", menu_donate: "Spenden", menu_join: "Mach mit",
+    hero_title: "Das Pariser Abkommen ist unser größter Sieg im Kampf gegen den Klimawandel",
+    hero_desc: "Ein wunderbares Zeichen menschlicher Solidarität, angetrieben von der globalen Dynamik unserer Bewegung.",
+    hero_more: "Weitere Highlights lesen ›", action_header: "Schließe dich der globalen Aktion an",
+    action_signed: "Unterzeichnet: 1.204.500", action_target: "Ziel: 1.500.000",
+    action_email: "Geben Sie Ihre E-Mail-Adresse ein", action_name: "Name", action_btn: "Jetzt unterschreiben",
+    camp_header: "Verpflichtung zur Genauigkeit", img_placeholder: "Bildplatzhalter",
+    camp1_title: "Menschenrechte verteidigen", camp1_desc: "Zeigen Sie Solidarität mit den Helfern an vorderster Front.",
+    camp2_title: "Weltwälder schützen", camp2_desc: "Fordern Sie die Staats- und Regierungschefs auf, sich zu null Entwaldung zu verpflichten.",
+    camp3_title: "Initiative für saubere Ozeane", camp3_desc: "Unterstützen Sie den verbindlichen Vertrag zur Beendigung der Plastikverschmutzung.",
+    camp_link: "Mehr erfahren", foot_profile: "Mein Profil", foot_about: "Über uns",
+    foot_jobs: "Karriere", foot_privacy: "Datenschutz", foot_new: "NEU", foot_terms: "Nutzungsbedingungen",
+    foot_contact: "Agnopol kontaktieren", foot_start: "Petition starten", foot_copy: "© 2026 Agnopol.org. Alle Rechte vorbehalten."
+  },
+  es: {
+    menu_about: "Sobre nosotros", menu_donate: "Donar", menu_join: "Únete a nosotros",
+    hero_title: "El Acuerdo de París es nuestra mayor victoria contra el cambio climático",
+    hero_desc: "Una hermosa muestra de solidaridad humana, impulsada por el impulso público de nuestro movimiento.",
+    hero_more: "Leer más destacados ›", action_header: "Únete a la Acción Global",
+    action_signed: "Firmado: 1.204.500", action_target: "Objetivo: 1.500.000",
+    action_email: "Introduce tu correo electrónico", action_name: "Nombre", action_btn: "Firmar ahora",
+    camp_header: "Compromiso con la exactitud", img_placeholder: "Marcador de imagen",
+    camp1_title: "Defender los Derechos Humanos", camp1_desc: "Solidarízate con los trabajadores de primera línea que protegen a las comunidades vulnerables.",
+    camp2_title: "Proteger los bosques globales", camp2_desc: "Insta a los líderes a comprometerse con objetivos de deforestación cero.",
+    camp3_title: "Iniciativa de Océano Limpio", camp3_desc: "Apoya el tratado vinculante para acabar con la contaminación plástica.",
+    camp_link: "Saber más", foot_profile: "Mi perfil", foot_about: "Sobre nosotros",
+    foot_jobs: "Empleo", foot_privacy: "Privacidad", foot_new: "NUEVO", foot_terms: "Términos de uso",
+    foot_contact: "Contactar a Agnopol", foot_start: "Iniciar una petición", foot_copy: "© 2026 Agnopol.org. Todos los derechos reservados."
+  },
+  it: {
+    menu_about: "Chi siamo", menu_donate: "Dona", menu_join: "Unisciti a noi",
+    hero_title: "L'Accordo di Parigi è la nostra più grande vittoria contro il cambiamento climatico",
+    hero_desc: "Una bellissima dimostrazione di solidarietà umana, resa possibile dallo slancio globale del nostro movimento.",
+    hero_more: "Leggi altri punti salienti ›", action_header: "Unisciti all'Azione Globale",
+    action_signed: "Firmato: 1.204.500", action_target: "Obiettivo: 1.500.000",
+    action_email: "Inserisci la tua email", action_name: "Nome", action_btn: "Firma ora",
+    camp_header: "Impegno per l'accuratezza", img_placeholder: "Segnaposto immagine",
+    camp1_title: "Difendere i diritti umani", camp1_desc: "Sostieni i lavoratori in prima linea che proteggono le comunità vulnerabili.",
+    camp2_title: "Proteggere le foreste globali", camp2_desc: "Esorta i leader a impegnarsi per obiettivi di deforestazione zero.",
+    camp3_title: "Iniziativa Oceano Pulito", camp3_desc: "Sostieni il trattato vincolante per porre fine all'inquinamento da plastica.",
+    camp_link: "Scopri di più", foot_profile: "Il mio profilo", foot_about: "Chi siamo",
+    foot_jobs: "Carriere", foot_privacy: "Privacy", foot_new: "NUOVO", foot_terms: "Termini di utilizzo",
+    foot_contact: "Contatta Agnopol", foot_start: "Avvia una petizione", foot_copy: "© 2026 Agnopol.org. Tutti i diritti riservati."
+  },
+  ja: {
+    menu_about: "私たちについて", menu_donate: "寄付", menu_join: "参加する",
+    hero_title: "パリ協定は、気候変動との戦いにおける私たちの最大の勝利です",
+    hero_desc: "人類の連帯の美しい表現であり、私たちの運動が推進した世界的な大衆の勢いがこれを実現しました。",
+    hero_more: "ハイライトを読む ›", action_header: "グローバルアクションに参加",
+    action_signed: "署名数: 1,204,500", action_target: "目標: 1,500,000",
+    action_email: "メールアドレスを入力", action_name: "名前", action_btn: "今すぐ署名",
+    camp_header: "正確性へのコミットメント", img_placeholder: "画像プレースホルダー",
+    camp1_title: "人権を守る", camp1_desc: "脆弱なコミュニティを保護する最前線の労働者と連帯します。",
+    camp2_title: "世界の森を保護する", camp2_desc: "森林破壊ゼロの目標にコミットするようリーダーに強く求めます。",
+    camp3_title: "クリーンオーシャン・イニシアチブ", camp3_desc: "プラスチック汚染を終わらせるための拘束力のある条約を支持します。",
+    camp_link: "詳細を見る", foot_profile: "マイプロフィール", foot_about: "私たちについて",
+    foot_jobs: "採用情報", foot_privacy: "プライバシーポリシー", foot_new: "更新", foot_terms: "利用規約",
+    foot_contact: "お問い合わせ", foot_start: "署名を始める", foot_copy: "© 2026 Agnopol.org. 無断複写・転載を禁じます。"
+  },
+  ko: {
+    menu_about: "회사 소개", menu_donate: "기부", menu_join: "함께하기",
+    hero_title: "파리 협정은 기후 변화에 맞선 우리의 가장 큰 승리입니다",
+    hero_desc: "우리 운동이 주도한 전 세계 대중의 추진력이 만들어낸 인류 연대의 아름다운 모습입니다.",
+    hero_more: "하이라이트 더 보기 ›", action_header: "글로벌 액션 참여하기",
+    action_signed: "서명: 1,204,500", action_target: "목표: 1,500,000",
+    action_email: "이메일 주소 입력", action_name: "이름", action_btn: "지금 서명하기",
+    camp_header: "정확성에 대한 약속", img_placeholder: "이미지 자리 표시자",
+    camp1_title: "인권 수호", camp1_desc: "취약한 커뮤니티를 보호하는 최전선 작업자들과 연대합니다.",
+    camp2_title: "글로벌 숲 보호", camp2_desc: "지도자들에게 삼림 벌채 제로 목표를 약속할 것을 촉구합니다.",
+    camp3_title: "깨끗한 바다 이니셔티브", camp3_desc: "플라스틱 오염을 종식시키기 위한 구속력 있는 조약을 지지합니다.",
+    camp_link: "더 알아보기", foot_profile: "내 프로필", foot_about: "회사 소개",
+    foot_jobs: "채용 정보", foot_privacy: "개인정보 보호정책", foot_new: "신규", foot_terms: "이용 약관",
+    foot_contact: "Agnopol 문의", foot_start: "청원 시작하기", foot_copy: "© 2026 Agnopol.org. 판권 소유."
+  }
+};
+
+// Language Switch Logic
+function setLang(lang) {
+  const data = dict[lang] || dict['en'];
+  
+  // Update normal text
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (data[key]) {
+      el.innerText = data[key];
+    }
+  });
+
+  // Update input placeholders
+  document.querySelectorAll("[data-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-placeholder");
+    if (data[key]) {
+      el.setAttribute("placeholder", data[key]);
+    }
+  });
+  
+  // Close menu after selection if it's open
+  const menu = document.getElementById('navMenu');
+  if(menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  }
+}
+
+// Initialize default language
+setLang('en');
+</script>
 
 </body>
 </html>
