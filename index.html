@@ -1,66 +1,176 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ lang: 'en' }">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGNOPOL | Individual Impact System</title>
-    
-    <meta name="description" content="Agnopol connects individuals to amplify global humanitarian and environmental change. Individual existence impacts the world.">
-    <meta name="keywords" content="Agnopol, individual action, humanitarian change, environmental network, decentralized community">
+    <title>Agnopol — 存在之处，世界正在成为世界</title>
+    <meta name="description" content="Agnopol 是一个以个体为核心的全球人道与环境行动网络。记录你的行动，参与当前倡议。">
+    <meta name="keywords" content="Agnopol, 人道, 环境, 行动网络, 联署, 署名, 社区">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://agnopol.xyz/">
 
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- 多语言 hreflang -->
+    <link rel="alternate" hreflang="en" href="https://agnopol.xyz/en/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
+    <link rel="alternate" hreflang="fr" href="https://agnopol.xyz/fr/">
+    <link rel="alternate" hreflang="de" href="https://agnopol.xyz/de/">
+    <link rel="alternate" hreflang="es" href="https://agnopol.xyz/es/">
+    <link rel="alternate" hreflang="it" href="https://agnopol.xyz/it/">
+    <link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agnopol.xyz/">
+    <meta property="og:title" content="Agnopol — 存在之处，世界正在成为世界">
+    <meta property="og:description" content="此时此刻，个体行动正在世界各地发生。">
+    <meta property="og:site_name" content="Agnopol">
+    <meta property="og:image" content="https://agnopol.xyz/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agnopol — 存在之处，世界正在成为世界">
+    <meta name="twitter:description" content="此时此刻，个体行动正在世界各地发生。">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
-        <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
-            <div class="brand-logotype">AGNOPOL</div>
-            <nav class="nav-cluster">
-                <a href="articles.html" style="color:inherit; text-decoration:none;">REPORTS</a>
-                <a href="register.html" style="color:inherit; text-decoration:none;">JOIN</a>
-                <select x-model="lang" style="background:transparent; color:white; border:1px solid #444; font-weight:900;">
-                    <option value="en">EN</option>
-                    <option value="zh">ZH</option>
-                </select>
+        <div class="header-inner">
+            <a href="index.html" class="logo">Agnopol</a>
+            <nav class="nav-links">
+                <a href="articles.html">文章</a>
+                <a href="reports.html">报告</a>
+                <a href="actions.html">倡议</a>
+                <a href="stories.html">故事</a>
+                <a href="discussions.html">讨论</a>
+                <a href="publish.html">发布</a>
+                <a href="login.html">登录</a>
             </nav>
         </div>
     </header>
 
     <main>
-        <section class="container hero-block">
-            <div class="statement-wrap">
-                <h1 x-text="lang === 'en' ? 'Individual Impacts World.' : '人的存在作用于世界。'"></h1>
-                <div class="sub-text" x-text="lang === 'en' ? 'Amplifying micro-actions into tangible change for humanity and the environment.' : '连接个体，放大个人行动，让每一次微小努力都成为推动世界改变的力量。'"></div>
+        <section class="hero container">
+            <h1>存在之处，世界正在成为世界。</h1>
+            <p>此时此刻，个体行动正在世界各地发生。</p>
+            <div>
+                <a href="actions.html" class="btn btn-primary">参与当前行动</a>
+                <a href="publish.html" class="btn btn-outline" style="margin-left:12px;">记录你的行动</a>
             </div>
-            
-            <button class="action-trigger" x-text="lang === 'en' ? 'Take Action' : '开始行动'"></button>
         </section>
 
-        <section class="container mission-grid">
-            <div class="mission-item">
-                <h3 x-text="lang === 'en' ? 'Our Mission' : '品牌使命'"></h3>
-                <p x-text="lang === 'en' ? 'Connecting individuals to turn thoughts and creativity into real-world impact.' : '连接个体，让思想、行动和创造力可以直接影响周围环境与人类社会。'"></p>
+        <section class="container">
+            <h2 class="section-title">编辑精选</h2>
+            <div class="grid-3">
+                <article class="card">
+                    <div class="type-tag">文章</div>
+                    <h3><a href="article.html">深海采矿的隐藏代价</a></h3>
+                    <div class="meta">作者 · 2024-11-02</div>
+                    <p class="excerpt">一份基于实地调查的分析，揭示深海采矿对生态系统的长期影响。</p>
+                </article>
+                <article class="card">
+                    <div class="type-tag">报告</div>
+                    <h3><a href="report.html">城市空气污染年度数据</a></h3>
+                    <div class="meta">Agnopol 编辑组 · 2024-10-28</div>
+                    <p class="excerpt">对比全球30个城市PM2.5水平，评估治理政策效果。</p>
+                </article>
+                <article class="card">
+                    <div class="type-tag">倡议</div>
+                    <h3><a href="action.html">要求立法禁止一次性塑料包装</a></h3>
+                    <div class="meta">14,203 人已署名</div>
+                    <p class="excerpt">加入联署，推动本地区全面禁用一次性塑料包装。</p>
+                </article>
+                <article class="card">
+                    <div class="type-tag">故事</div>
+                    <h3><a href="story.html">我在社区组织气候集会的日子</a></h3>
+                    <div class="meta">Anya · 基辅 · 2024-10-15</div>
+                    <p class="excerpt">当普通市民决定走上街头，他们如何改变政策。</p>
+                </article>
             </div>
-            <div class="mission-item">
-                <h3 x-text="lang === 'en' ? 'Our Vision' : '建立初衷'"></h3>
-                <p x-text="lang === 'en' ? 'Building a sustainable, open community where decentralization empowers human potential.' : '构建可持续、开放、去中心化的社区，让每个人都能发挥力量。'"></p>
+        </section>
+
+        <section class="container live-feed">
+            <h2 class="section-title">正在发生</h2>
+            <ul>
+                <li><span style="color:var(--text-muted)">2分钟前</span> <strong>柏林</strong> —— 某人签署了“停止深海采矿”倡议</li>
+                <li><span style="color:var(--text-muted)">7分钟前</span> <strong>马尼拉</strong> —— 一位居民记录了塑料污染故事</li>
+                <li><span style="color:var(--text-muted)">12分钟前</span> <strong>巴塞罗那</strong> —— 某人联署气候正义倡议</li>
+                <li><span style="color:var(--text-muted)">18分钟前</span> <strong>内罗毕</strong> —— 一份关于水资源的报告被发布</li>
+            </ul>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">当前倡议</h2>
+            <div class="action-cards">
+                <div class="action-card">
+                    <div class="info">
+                        <h3>保护原始森林，停止非法伐木</h3>
+                        <span class="meta">署名人数：9,827</span>
+                    </div>
+                    <a href="action.html" class="btn btn-primary">立即署名</a>
+                </div>
+                <div class="action-card">
+                    <div class="info">
+                        <h3>增加清洁能源公共投资</h3>
+                        <span class="meta">署名人数：5,342</span>
+                    </div>
+                    <a href="action.html" class="btn btn-primary">立即署名</a>
+                </div>
+                <div class="action-card">
+                    <div class="info">
+                        <h3>要求企业公开碳排放数据</h3>
+                        <span class="meta">署名人数：12,610</span>
+                    </div>
+                    <a href="action.html" class="btn btn-primary">立即署名</a>
+                </div>
             </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">公共讨论</h2>
+            <div class="discussion-list">
+                <div class="discussion-item">
+                    <div>
+                        <h4>个人减少碳足迹的有效方式有哪些？</h4>
+                        <span style="color:var(--text-muted)">发起者 · 12 回复 · 最后回复 4小时前</span>
+                    </div>
+                    <a href="discussion.html">进入讨论</a>
+                </div>
+                <div class="discussion-item">
+                    <div>
+                        <h4>地方环保政策的执行难题</h4>
+                        <span style="color:var(--text-muted)">发起者 · 8 回复 · 最后回复 9小时前</span>
+                    </div>
+                    <a href="discussion.html">进入讨论</a>
+                </div>
+                <div class="discussion-item">
+                    <div>
+                        <h4>如何让社区更积极参与人道援助？</h4>
+                        <span style="color:var(--text-muted)">发起者 · 5 回复 · 最后回复 昨天</span>
+                    </div>
+                    <a href="discussion.html">进入讨论</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-register container">
+            <p style="margin-bottom:20px;">注册后，你的署名、故事和报告将公开可查，成为行动证据的一部分。</p>
+            <a href="register.html" class="btn btn-primary">创建记录账户</a>
         </section>
     </main>
 
-    <footer>
-        <div class="container" style="display:grid; grid-template-columns: 1fr 1fr;">
-            <div>
-                // CORE: AGNOPOL_SYSTEM<br>
-                // OBJECTIVE: HUMANITARIAN_ENVIRONMENTAL_PROTECTION
-            </div>
-            <div style="text-align: right;">
-                CONNECT: IMPACT@AGNOPOL.XYZ<br>
-                &copy; 2026 INTERNAL_ID_1777706237
-            </div>
+    <footer class="container">
+        <div>
+            <a href="about.html">关于</a> ·
+            <a href="terms.html">条款</a> ·
+            <a href="privacy.html">隐私政策</a> ·
+            <a href="language.html">语言</a>
+        </div>
+        <div>
+            &copy; 2024–<span id="year"></span> Agnopol。<br>个体所发布内容及行动记录，权利归属行动者本人。
         </div>
     </footer>
 
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
