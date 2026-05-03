@@ -184,15 +184,6 @@ header {
 .btn-submit { background: var(--pine-green); color: var(--white); border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
 .btn-submit:hover, .btn-submit:focus-visible { background: var(--pine-green-hover); }
 
-/* === Module 4: Featured Articles === */
-.article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.article-card { border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
-.article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-.article-img { height: 160px; background: #e0e0e0; display: flex; justify-content: center; align-items: center; color: var(--text-gray); }
-.article-body { padding: 15px; flex: 1; }
-.article-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 8px; }
-.article-desc { font-size: 0.9rem; color: var(--text-gray); }
-
 /* === Registration Modal === */
 .modal-overlay {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); opacity: 0; visibility: hidden; display: flex; justify-content: center; align-items: center; z-index: 999; transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -327,21 +318,8 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
 
   <section class="container" aria-labelledby="articlesHeader">
     <h2 id="articlesHeader" class="module-title" data-i18n="article_title">Featured Articles & Reports</h2>
-    <div class="article-grid">
-      <article class="article-card">
-        <div class="article-img" aria-hidden="true" data-i18n="img_placeholder">Image</div>
-        <div class="article-body">
-          <h3 class="article-title" data-i18n="art1_title">2026 Global Environmental Report</h3>
-          <p class="article-desc" data-i18n="art1_desc">Small actions gather into oceans. How individual actions reversed the ecological crisis this year.</p>
-        </div>
-      </article>
-      <article class="article-card">
-        <div class="article-img" aria-hidden="true" data-i18n="img_placeholder">Image</div>
-        <div class="article-body">
-          <h3 class="article-title" data-i18n="art2_title">Borderless Medical Aid Network</h3>
-          <p class="article-desc" data-i18n="art2_desc">Exploring how decentralized organizations provide support through physical barriers in humanitarian crises.</p>
-        </div>
-      </article>
+    <div class="placeholder-box" data-i18n="art_empty">
+      Articles and reports will be published here after launch.
     </div>
   </section>
 
@@ -403,7 +381,7 @@ function toggleMenu() {
 function openModal() {
   const modal = document.getElementById('regModal');
   modal.classList.add('active');
-  document.getElementById('regEmail').focus(); // Accessibility focus trap setup
+  document.getElementById('regEmail').focus();
   
   // Close menu if open
   document.getElementById('navMenu').classList.remove('active');
@@ -425,9 +403,7 @@ const dict = {
     live_title: "Happening Now", live_empty: "Real-time actions will appear here after launch.",
     action_title: "Speak for the world, act for yourself", 
     action_name: "Your Name", action_email: "Your Email", action_country: "Select your country/region", action_other: "Other", action_btn: "Confirm Action",
-    article_title: "Featured Articles & Reports", img_placeholder: "Image",
-    art1_title: "2026 Global Environmental Report", art1_desc: "Small actions gather into oceans. How individual actions reversed the ecological crisis this year.",
-    art2_title: "Borderless Medical Aid Network", art2_desc: "Exploring how decentralized organizations provide support through physical barriers in humanitarian crises.",
+    article_title: "Featured Articles & Reports", art_empty: "Articles and reports will be published here after launch.",
     comm_title: "Community Forum", comm_empty: "Community forum will be available soon.",
     foot_profile: "My Profile", foot_about: "About Us", foot_jobs: "Careers", foot_privacy: "Privacy Policy", foot_terms: "Terms of Use", foot_contact: "Contact Agnopol", foot_start: "Start a Petition", foot_copy: "© 2026 Agnopol. All rights reserved."
   },
@@ -439,9 +415,7 @@ const dict = {
     live_title: "正在發生", live_empty: "即時動態將於上線後顯示。",
     action_title: "為世界發聲，為自己行動", 
     action_name: "您的姓名", action_email: "您的電子郵件", action_country: "選擇您的國家/地區", action_other: "其他", action_btn: "確認發起 / 簽署",
-    article_title: "精選成員文章與報告", img_placeholder: "圖片",
-    art1_title: "2026 全球環境倡議年度報告", art1_desc: "從微小做起，匯聚成海。解析本年度個體行動如何逆轉生態危機。",
-    art2_title: "無國界的醫療援助網絡", art2_desc: "探討去中心化組織如何在人道主義危機中突破物理阻礙提供支持。",
+    article_title: "精選成員文章與報告", art_empty: "文章與報告將於上線後發佈。",
     comm_title: "社區交流板塊", comm_empty: "社區交流板塊即將開放。",
     foot_profile: "我的檔案", foot_about: "關於我們", foot_jobs: "工作機會", foot_privacy: "隱私權政策", foot_terms: "使用者條款", foot_contact: "聯絡 Agnopol", foot_start: "發起聯署", foot_copy: "© 2026 Agnopol。版權所有。"
   },
@@ -453,9 +427,7 @@ const dict = {
     live_title: "En ce moment", live_empty: "Les actions en temps réel apparaîtront ici après le lancement.",
     action_title: "Parlez pour le monde, agissez pour vous-même", 
     action_name: "Votre Nom", action_email: "Votre E-mail", action_country: "Sélectionnez votre pays", action_other: "Autre", action_btn: "Confirmer l'action",
-    article_title: "Articles et rapports en vedette", img_placeholder: "Image",
-    art1_title: "Rapport mondial sur l'environnement 2026", art1_desc: "Comment les actions individuelles ont inversé la crise écologique cette année.",
-    art2_title: "Réseau d'aide médicale sans frontières", art2_desc: "Explorer comment les organisations décentralisées fournissent un soutien lors des crises humanitaires.",
+    article_title: "Articles et rapports en vedette", art_empty: "Les articles et rapports seront publiés ici après le lancement.",
     comm_title: "Forum communautaire", comm_empty: "Le forum communautaire sera bientôt disponible.",
     foot_profile: "Mon profil", foot_about: "À propos", foot_jobs: "Carrières", foot_privacy: "Confidentialité", foot_terms: "Conditions d'utilisation", foot_contact: "Contacter Agnopol", foot_start: "Lancer une pétition", foot_copy: "© 2026 Agnopol. Tous droits réservés."
   },
@@ -467,9 +439,7 @@ const dict = {
     live_title: "Was gerade passiert", live_empty: "Echtzeit-Aktionen werden hier nach dem Start angezeigt.",
     action_title: "Sprich für die Welt, handle für dich selbst", 
     action_name: "Ihr Name", action_email: "Ihre E-Mail", action_country: "Wählen Sie Ihr Land/Region", action_other: "Andere", action_btn: "Aktion bestätigen",
-    article_title: "Ausgewählte Artikel & Berichte", img_placeholder: "Bild",
-    art1_title: "Globaler Umweltbericht 2026", art1_desc: "Wie individuelle Aktionen in diesem Jahr die ökologische Krise umkehrten.",
-    art2_title: "Grenzenloses medizinisches Hilfsnetzwerk", art2_desc: "Untersuchung, wie dezentrale Organisationen bei humanitären Krisen Unterstützung leisten.",
+    article_title: "Ausgewählte Artikel & Berichte", art_empty: "Artikel und Berichte werden hier nach dem Start veröffentlicht.",
     comm_title: "Community-Forum", comm_empty: "Das Community-Forum wird bald verfügbar sein.",
     foot_profile: "Mein Profil", foot_about: "Über uns", foot_jobs: "Karriere", foot_privacy: "Datenschutz", foot_terms: "Nutzungsbedingungen", foot_contact: "Agnopol kontaktieren", foot_start: "Petition starten", foot_copy: "© 2026 Agnopol. Alle Rechte vorbehalten."
   },
@@ -481,9 +451,7 @@ const dict = {
     live_title: "Sucediendo ahora", live_empty: "Las acciones en tiempo real aparecerán aquí después del lanzamiento.",
     action_title: "Habla por el mundo, actúa por ti mismo", 
     action_name: "Tu Nombre", action_email: "Tu Correo", action_country: "Selecciona tu país", action_other: "Otro", action_btn: "Confirmar acción",
-    article_title: "Artículos y reportes destacados", img_placeholder: "Imagen",
-    art1_title: "Informe Ambiental Global 2026", art1_desc: "Cómo las acciones individuales revirtieron la crisis ecológica este año.",
-    art2_title: "Red de ayuda médica sin fronteras", art2_desc: "Explorando cómo las organizaciones descentralizadas brindan apoyo en crisis humanitarias.",
+    article_title: "Artículos y reportes destacados", art_empty: "Los artículos y reportes se publicarán aquí después del lanzamiento.",
     comm_title: "Foro de la comunidad", comm_empty: "El foro de la comunidad estará disponible pronto.",
     foot_profile: "Mi perfil", foot_about: "Sobre nosotros", foot_jobs: "Empleos", foot_privacy: "Privacidad", foot_terms: "Términos de uso", foot_contact: "Contactar a Agnopol", foot_start: "Iniciar petición", foot_copy: "© 2026 Agnopol. Todos los derechos reservados."
   },
@@ -495,9 +463,7 @@ const dict = {
     live_title: "Sta succedendo ora", live_empty: "Le azioni in tempo reale appariranno qui dopo il lancio.",
     action_title: "Parla per il mondo, agisci per te stesso", 
     action_name: "Il tuo nome", action_email: "La tua email", action_country: "Seleziona il tuo paese", action_other: "Altro", action_btn: "Conferma azione",
-    article_title: "Articoli e report in primo piano", img_placeholder: "Immagine",
-    art1_title: "Rapporto globale sull'ambiente 2026", art1_desc: "Come le azioni individuali hanno invertito la crisi ecologica quest'anno.",
-    art2_title: "Rete di assistenza medica senza frontiere", art2_desc: "Come le organizzazioni decentralizzate forniscono supporto nelle crisi umanitarie.",
+    article_title: "Articoli e report in primo piano", art_empty: "Articoli e report saranno pubblicati qui dopo il lancio.",
     comm_title: "Forum della community", comm_empty: "Il forum della community sarà presto disponibile.",
     foot_profile: "Il mio profilo", foot_about: "Chi siamo", foot_jobs: "Carriere", foot_privacy: "Privacy", foot_terms: "Termini di utilizzo", foot_contact: "Contatta Agnopol", foot_start: "Avvia una petizione", foot_copy: "© 2026 Agnopol. Tutti i diritti riservati."
   },
@@ -509,9 +475,7 @@ const dict = {
     live_title: "現在進行中", live_empty: "リアルタイムの活動は公開後にここに表示されます。",
     action_title: "世界のために声を上げ、自分のために行動する", 
     action_name: "お名前", action_email: "メールアドレス", action_country: "国/地域を選択", action_other: "その他", action_btn: "行動を確認",
-    article_title: "注目の記事とレポート", img_placeholder: "画像",
-    art1_title: "2026年 地球環境レポート", art1_desc: "個人の行動が今年いかにして生態学的危機を逆転させたか。",
-    art2_title: "国境なき医療援助ネットワーク", art2_desc: "分散型組織が人道危機において物理的な障壁を越えて支援を提供する方法。",
+    article_title: "注目の記事とレポート", art_empty: "記事とレポートは公開後にここに掲載されます。",
     comm_title: "コミュニティフォーラム", comm_empty: "コミュニティフォーラムはまもなく利用可能になります。",
     foot_profile: "マイプロフィール", foot_about: "私たちについて", foot_jobs: "採用情報", foot_privacy: "プライバシーポリシー", foot_terms: "利用規約", foot_contact: "お問い合わせ", foot_start: "署名を始める", foot_copy: "© 2026 Agnopol. All rights reserved."
   },
@@ -523,9 +487,7 @@ const dict = {
     live_title: "지금 진행 중", live_empty: "실시간 활동은 출시 후 여기에 표시됩니다.",
     action_title: "세상을 위해 목소리를 내고, 자신을 위해 행동하세요", 
     action_name: "이름", action_email: "이메일", action_country: "국가/지역 선택", action_other: "기타", action_btn: "행동 확인",
-    article_title: "주요 기사 및 보고서", img_placeholder: "이미지",
-    art1_title: "2026 글로벌 환경 보고서", art1_desc: "올해 개인의 행동이 어떻게 생태 위기를 극복했는지 보여줍니다.",
-    art2_title: "국경 없는 의료 지원 네트워크", art2_desc: "인도주의적 위기에서 분산형 조직이 물리적 장벽을 넘어 지원을 제공하는 방법.",
+    article_title: "주요 기사 및 보고서", art_empty: "기사 및 보고서는 출시 후 여기에 게시됩니다.",
     comm_title: "커뮤니티 포럼", comm_empty: "커뮤니티 포럼은 곧 제공될 예정입니다.",
     foot_profile: "내 프로필", foot_about: "회사 소개", foot_jobs: "채용 정보", foot_privacy: "개인정보 보호정책", foot_terms: "이용 약관", foot_contact: "문의하기", foot_start: "청원 시작", foot_copy: "© 2026 Agnopol. 모든 권리 보유."
   }
@@ -560,7 +522,7 @@ function setLang(lang) {
         try {
           opt.innerText = displayNames.of(opt.value);
         } catch (e) {
-          // Keep raw value if the country code is somehow unsupported
+          // Keep raw value
         }
       }
     });
