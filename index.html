@@ -10,11 +10,13 @@
 
     <!-- hreflang -->
     <link rel="alternate" hreflang="en" href="https://agnopol.xyz/en/">
-    <link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
     <link rel="alternate" hreflang="fr" href="https://agnopol.xyz/fr/">
     <link rel="alternate" hreflang="de" href="https://agnopol.xyz/de/">
     <link rel="alternate" hreflang="es" href="https://agnopol.xyz/es/">
     <link rel="alternate" hreflang="it" href="https://agnopol.xyz/it/">
+    <link rel="alternate" hreflang="ja" href="https://agnopol.xyz/ja/">
+    <link rel="alternate" hreflang="ko" href="https://agnopol.xyz/ko/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
     <link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
 
     <meta property="og:type" content="website">
@@ -27,31 +29,230 @@
     <meta name="twitter:title" content="Agnopol — 存在之处，世界正在成为世界">
     <meta name="twitter:description" content="此时此刻，个体行动正在世界各地发生。">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-page: #F5F7FA;
+            --bg-card: #FFFFFF;
+            --accent: #4A7C59;
+            --accent-secondary: #6BAF92;
+            --text-primary: #1A1D23;
+            --text-secondary: #4A4F56;
+            --text-muted: #8A8F98;
+            --border: rgba(0,0,0,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { opacity: 0.8; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* 页头 */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(245,247,250,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 14px 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        .menu-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .menu-btn:hover {
+            background: var(--bg-card);
+        }
+
+        /* 菜单面板 */
+        .menu-panel {
+            display: none;
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 24px;
+            z-index: 200;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+        .menu-panel.open {
+            display: block;
+        }
+        .menu-panel a {
+            display: block;
+            padding: 8px 0;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        .menu-panel a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+        .menu-separator {
+            border-top: 1px solid var(--border);
+            margin: 8px 0;
+        }
+
+        /* 按钮 */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 24px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover { background: var(--accent-secondary); opacity: 1; }
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1.5px solid var(--accent);
+        }
+        .btn-outline:hover { background: rgba(74,124,89,0.05); opacity: 1; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 0 60px;
+        }
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: #1A1D23;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+        .hero .btn-group {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* 模块 */
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin: 60px 0 28px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        /* 发起倡议 */
+        .callout {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+        .callout h2 {
+            font-weight: 600;
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+        .callout p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        /* 注册 */
+        .cta-register {
+            text-align: center;
+            padding: 50px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        /* 底部 */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        footer a { color: var(--text-muted); }
+    </style>
 </head>
 <body>
     <header>
         <div class="header-inner">
             <a href="index.html" class="logo">Agnopol</a>
-            <nav class="nav-links" aria-label="主导航">
-                <a href="articles.html">文章</a>
-                <a href="reports.html">报告</a>
-                <a href="actions.html">倡议</a>
-                <a href="stories.html">故事</a>
-                <a href="discussions.html">讨论</a>
-                <a href="publish.html">发布</a>
-                <a href="login.html">登录</a>
-            </nav>
+            <button class="menu-btn" onclick="document.getElementById('menu').classList.toggle('open')">Menu</button>
         </div>
     </header>
+
+    <!-- 菜单 -->
+    <div id="menu" class="menu-panel">
+        <a href="articles.html">Articles</a>
+        <a href="reports.html">Reports</a>
+        <a href="actions.html">Actions</a>
+        <a href="stories.html">Stories</a>
+        <a href="discussions.html">Discussions</a>
+        <a href="publish.html">Publish</a>
+        <div class="menu-separator"></div>
+        <a href="login.html">Sign in</a>
+        <a href="register.html">Create account</a>
+    </div>
 
     <main>
         <section class="hero container">
             <h1>存在之处，世界正在成为世界。</h1>
             <p>此时此刻，个体行动正在世界各地发生。</p>
-            <div>
+            <div class="btn-group">
                 <a href="actions.html" class="btn btn-primary">参与当前行动</a>
-                <a href="publish.html" class="btn btn-outline" style="margin-left:12px;">记录你的行动</a>
+                <a href="publish.html" class="btn btn-outline">记录你的行动</a>
             </div>
         </section>
 
@@ -59,7 +260,7 @@
             <h2 class="section-title">焦点</h2>
         </section>
 
-        <section class="container live-feed">
+        <section class="container">
             <h2 class="section-title">正在发生</h2>
         </section>
 
@@ -67,9 +268,9 @@
             <h2 class="section-title">当前倡议</h2>
         </section>
 
-        <section class="container" style="text-align: center; padding: 40px 0; border-top: 1px solid var(--border); margin-top: 40px;">
-            <h2 style="font-weight: 400; margin-bottom: 12px;">发起你的倡议</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">每个人都可以发起署名、记录行动、发布报告。</p>
+        <section class="callout container">
+            <h2>发起你的倡议</h2>
+            <p>每个人都可以发起署名、记录行动、发布报告。</p>
             <a href="publish.html" class="btn btn-primary">开始发布</a>
         </section>
 
@@ -78,29 +279,48 @@
         </section>
 
         <section class="cta-register container">
-            <p style="margin-bottom:20px;">注册后，你的署名、故事和报告将公开可查，成为行动证据的一部分。</p>
+            <p style="margin-bottom:20px; color: var(--text-secondary);">注册后，你的署名、故事和报告将公开可查，成为行动证据的一部分。</p>
             <a href="register.html" class="btn btn-primary">创建记录账户</a>
         </section>
     </main>
 
     <footer class="container">
         <div>
-            <a href="about.html">关于</a>
-            <a href="terms.html">条款</a>
-            <a href="privacy.html">隐私政策</a>
+            <a href="about.html">About</a>
+            <span style="margin:0 6px;">·</span>
+            <a href="terms.html">Terms</a>
+            <span style="margin:0 6px;">·</span>
+            <a href="privacy.html">Privacy</a>
+            <span style="margin:0 6px;">·</span>
+            <a href="#">English</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">Français</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">Deutsch</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">Español</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">Italiano</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">日本語</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">한국어</a>
+            <span style="margin:0 4px;">·</span>
+            <a href="#">繁體中文</a>
         </div>
-        <div>
-            <a href="language.html">语言</a>
-            <span style="margin: 0 8px;">|</span>
-            <span>English · 繁體中文 · Français · Deutsch · Español · Italiano</span>
-        </div>
-        <div style="width: 100%; text-align: center; margin-top: 16px;">
-            &copy; <span id="year"></span> Agnopol。个体所发布内容及行动记录，权利归属行动者本人。
+        <div style="text-align: right;">
+            &copy; <span id="year"></span> <strong>Agnopol</strong>。个体所发布内容及行动记录，权利归属行动者本人。
         </div>
     </footer>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
+        // 点击页面其他区域关闭菜单
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.menu-btn') && !e.target.closest('.menu-panel')) {
+                document.getElementById('menu').classList.remove('open');
+            }
+        });
     </script>
 </body>
 </html>
