@@ -261,7 +261,7 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
   <div class="hero-top-banner" data-i18n="hero_banner">Agnopol is an open community gathered by a common ideal to change the world through voices and actions.</div>
   <div class="hero-image-box">
     <div class="hero-image-overlay">
-      <div class="hero-image-title" data-i18n="hero_title">Every voice changes the real world!</div>
+      <div class="hero-image-title" data-i18n="hero_title">Speak for the world, act for yourself!</div>
       <div class="hero-action-btn">❯</div>
     </div>
   </div>
@@ -280,14 +280,15 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
 </section>
 
 <section class="container">
-  <h2 class="module-title" data-i18n="action_title">Take Action Now</h2>
+  <h2 class="module-title" data-i18n="action_title">Speak for the world, act for yourself</h2>
   <div class="action-section">
     <form class="action-form">
       <input type="text" class="form-input" data-placeholder="action_name" placeholder="Your Name" required>
       <input type="email" class="form-input" data-placeholder="action_email" placeholder="Your Email" required>
-      <select class="form-select" required>
+      <select class="form-select" id="countrySelect" required>
         <option value="" disabled selected data-i18n="action_country">Select your country/region</option>
         <option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="CV">Cabo Verde</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CD">Congo (Democratic Republic)</option><option value="CG">Congo (Republic)</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Curaçao</option><option value="CY">Cyprus</option><option value="CZ">Czechia</option><option value="CI">Côte d'Ivoire</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="SZ">Eswatini</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KP">Korea (North)</option><option value="KR">Korea (South)</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Lao People's Democratic Republic</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macao</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="MK">North Macedonia</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine, State of</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RO">Romania</option><option value="RU">Russian Federation</option><option value="RW">Rwanda</option><option value="RE">Réunion</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">Sao Tome and Principe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syrian Arab Republic</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Viet Nam</option><option value="VG">Virgin Islands (British)</option><option value="VI">Virgin Islands (U.S.)</option><option value="WF">Wallis and Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
+        <option value="OTHER" data-i18n="action_other">Other</option>
       </select>
       <button type="submit" class="btn-submit" data-i18n="action_btn">Confirm Action</button>
     </form>
@@ -368,9 +369,11 @@ const dict = {
   en: {
     menu_about: "About Us", menu_donate: "Donate", menu_join: "Join Us",
     modal_title: "Join Agnopol", modal_desc: "Register with your primary email. Password must be 8 to 16 characters.", modal_btn: "Create Account", modal_pass: "Password (8-16 chars)",
-    hero_banner: "Agnopol is an open community gathered by a common ideal to change the world through voices and actions.", hero_title: "Every voice changes the real world!",
+    hero_banner: "Agnopol is an open community gathered by a common ideal to change the world through voices and actions.", 
+    hero_title: "Speak for the world, act for yourself!",
     live_title: "Happening Now", live_empty: "Real-time actions will appear here after launch.",
-    action_title: "Take Action Now", action_name: "Your Name", action_email: "Your Email", action_country: "Select your country/region", action_btn: "Confirm Action",
+    action_title: "Speak for the world, act for yourself", 
+    action_name: "Your Name", action_email: "Your Email", action_country: "Select your country/region", action_other: "Other", action_btn: "Confirm Action",
     article_title: "Featured Articles & Reports", img_placeholder: "Image",
     art1_title: "2026 Global Environmental Report", art1_desc: "Small actions gather into oceans. How individual actions reversed the ecological crisis this year.",
     art2_title: "Borderless Medical Aid Network", art2_desc: "Exploring how decentralized organizations provide support through physical barriers in humanitarian crises.",
@@ -380,9 +383,11 @@ const dict = {
   zh: {
     menu_about: "關於我們", menu_donate: "捐贈", menu_join: "加入我們",
     modal_title: "加入 Agnopol", modal_desc: "使用常用電子郵件註冊。密碼必須包含 8 到 16 個字元。", modal_btn: "建立帳號", modal_pass: "密碼 (8-16位)",
-    hero_banner: "Agnopol是一群因共同理想聚集在一起透過聲音與行動進而改變世界的開放社群", hero_title: "每一次發聲，都在改變現實世界！",
+    hero_banner: "Agnopol是一群因共同理想聚集在一起透過聲音與行動進而改變世界的開放社群", 
+    hero_title: "為世界發聲，為自己行動！",
     live_title: "正在發生", live_empty: "即時動態將於上線後顯示。",
-    action_title: "立即採取行動", action_name: "您的姓名", action_email: "您的電子郵件", action_country: "選擇您的國家/地區", action_btn: "確認發起 / 簽署",
+    action_title: "為世界發聲，為自己行動", 
+    action_name: "您的姓名", action_email: "您的電子郵件", action_country: "選擇您的國家/地區", action_other: "其他", action_btn: "確認發起 / 簽署",
     article_title: "精選成員文章與報告", img_placeholder: "圖片",
     art1_title: "2026 全球環境倡議年度報告", art1_desc: "從微小做起，匯聚成海。解析本年度個體行動如何逆轉生態危機。",
     art2_title: "無國界的醫療援助網絡", art2_desc: "探討去中心化組織如何在人道主義危機中突破物理阻礙提供支持。",
@@ -392,9 +397,11 @@ const dict = {
   fr: {
     menu_about: "À propos", menu_donate: "Faire un don", menu_join: "Rejoignez-nous",
     modal_title: "Rejoindre Agnopol", modal_desc: "Inscrivez-vous avec votre e-mail principal. Le mot de passe doit comporter entre 8 et 16 caractères.", modal_btn: "Créer un compte", modal_pass: "Mot de passe (8-16 car.)",
-    hero_banner: "Agnopol est une communauté ouverte rassemblée par un idéal commun pour changer le monde par des voix et des actions.", hero_title: "Chaque voix change le monde réel !",
+    hero_banner: "Agnopol est une communauté ouverte rassemblée par un idéal commun pour changer le monde par des voix et des actions.", 
+    hero_title: "Parlez pour le monde, agissez pour vous-même !",
     live_title: "En ce moment", live_empty: "Les actions en temps réel apparaîtront ici après le lancement.",
-    action_title: "Agissez maintenant", action_name: "Votre Nom", action_email: "Votre E-mail", action_country: "Sélectionnez votre pays", action_btn: "Confirmer l'action",
+    action_title: "Parlez pour le monde, agissez pour vous-même", 
+    action_name: "Votre Nom", action_email: "Votre E-mail", action_country: "Sélectionnez votre pays", action_other: "Autre", action_btn: "Confirmer l'action",
     article_title: "Articles et rapports en vedette", img_placeholder: "Image",
     art1_title: "Rapport mondial sur l'environnement 2026", art1_desc: "Comment les actions individuelles ont inversé la crise écologique cette année.",
     art2_title: "Réseau d'aide médicale sans frontières", art2_desc: "Explorer comment les organisations décentralisées fournissent un soutien lors des crises humanitaires.",
@@ -404,9 +411,11 @@ const dict = {
   de: {
     menu_about: "Über uns", menu_donate: "Spenden", menu_join: "Mach mit",
     modal_title: "Agnopol beitreten", modal_desc: "Registrieren Sie sich mit Ihrer Haupt-E-Mail. Passwort muss 8-16 Zeichen lang sein.", modal_btn: "Konto erstellen", modal_pass: "Passwort (8-16 Z.)",
-    hero_banner: "Agnopol ist eine offene Gemeinschaft, die durch ein gemeinsames Ideal zusammengebracht wurde, um die Welt durch Stimmen und Taten zu verändern.", hero_title: "Jede Stimme verändert die reale Welt!",
+    hero_banner: "Agnopol ist eine offene Gemeinschaft, die durch ein gemeinsames Ideal zusammengebracht wurde, um die Welt durch Stimmen und Taten zu verändern.", 
+    hero_title: "Sprich für die Welt, handle für dich selbst!",
     live_title: "Was gerade passiert", live_empty: "Echtzeit-Aktionen werden hier nach dem Start angezeigt.",
-    action_title: "Jetzt handeln", action_name: "Ihr Name", action_email: "Ihre E-Mail", action_country: "Wählen Sie Ihr Land/Region", action_btn: "Aktion bestätigen",
+    action_title: "Sprich für die Welt, handle für dich selbst", 
+    action_name: "Ihr Name", action_email: "Ihre E-Mail", action_country: "Wählen Sie Ihr Land/Region", action_other: "Andere", action_btn: "Aktion bestätigen",
     article_title: "Ausgewählte Artikel & Berichte", img_placeholder: "Bild",
     art1_title: "Globaler Umweltbericht 2026", art1_desc: "Wie individuelle Aktionen in diesem Jahr die ökologische Krise umkehrten.",
     art2_title: "Grenzenloses medizinisches Hilfsnetzwerk", art2_desc: "Untersuchung, wie dezentrale Organisationen bei humanitären Krisen Unterstützung leisten.",
@@ -416,9 +425,11 @@ const dict = {
   es: {
     menu_about: "Sobre nosotros", menu_donate: "Donar", menu_join: "Únete a nosotros",
     modal_title: "Únete a Agnopol", modal_desc: "Regístrate con tu correo principal. La contraseña debe tener entre 8 y 16 caracteres.", modal_btn: "Crear cuenta", modal_pass: "Contraseña (8-16 car.)",
-    hero_banner: "Agnopol es una comunidad abierta reunida por un ideal común para cambiar el mundo a través de voces y acciones.", hero_title: "¡Cada voz cambia el mundo real!",
+    hero_banner: "Agnopol es una comunidad abierta reunida por un ideal común para cambiar el mundo a través de voces y acciones.", 
+    hero_title: "¡Habla por el mundo, actúa por ti mismo!",
     live_title: "Sucediendo ahora", live_empty: "Las acciones en tiempo real aparecerán aquí después del lanzamiento.",
-    action_title: "Actúa ahora", action_name: "Tu Nombre", action_email: "Tu Correo", action_country: "Selecciona tu país", action_btn: "Confirmar acción",
+    action_title: "Habla por el mundo, actúa por ti mismo", 
+    action_name: "Tu Nombre", action_email: "Tu Correo", action_country: "Selecciona tu país", action_other: "Otro", action_btn: "Confirmar acción",
     article_title: "Artículos y reportes destacados", img_placeholder: "Imagen",
     art1_title: "Informe Ambiental Global 2026", art1_desc: "Cómo las acciones individuales revirtieron la crisis ecológica este año.",
     art2_title: "Red de ayuda médica sin fronteras", art2_desc: "Explorando cómo las organizaciones descentralizadas brindan apoyo en crisis humanitarias.",
@@ -428,9 +439,11 @@ const dict = {
   it: {
     menu_about: "Chi siamo", menu_donate: "Dona", menu_join: "Unisciti a noi",
     modal_title: "Unisciti ad Agnopol", modal_desc: "Registrati con la tua email principale. La password deve avere tra 8 e 16 caratteri.", modal_btn: "Crea account", modal_pass: "Password (8-16 car.)",
-    hero_banner: "Agnopol è una comunità aperta unita da un ideale comune per cambiare il mondo attraverso voci e azioni.", hero_title: "Ogni voce cambia il mondo reale!",
+    hero_banner: "Agnopol è una comunità aperta unita da un ideale comune per cambiare il mondo attraverso voci e azioni.", 
+    hero_title: "Parla per il mondo, agisci per te stesso!",
     live_title: "Sta succedendo ora", live_empty: "Le azioni in tempo reale appariranno qui dopo il lancio.",
-    action_title: "Agisci ora", action_name: "Il tuo nome", action_email: "La tua email", action_country: "Seleziona il tuo paese", action_btn: "Conferma azione",
+    action_title: "Parla per il mondo, agisci per te stesso", 
+    action_name: "Il tuo nome", action_email: "La tua email", action_country: "Seleziona il tuo paese", action_other: "Altro", action_btn: "Conferma azione",
     article_title: "Articoli e report in primo piano", img_placeholder: "Immagine",
     art1_title: "Rapporto globale sull'ambiente 2026", art1_desc: "Come le azioni individuali hanno invertito la crisi ecologica quest'anno.",
     art2_title: "Rete di assistenza medica senza frontiere", art2_desc: "Come le organizzazioni decentralizzate forniscono supporto nelle crisi umanitarie.",
@@ -440,9 +453,11 @@ const dict = {
   ja: {
     menu_about: "私たちについて", menu_donate: "寄付", menu_join: "参加する",
     modal_title: "Agnopolに参加", modal_desc: "よく使うメールアドレスで登録してください。パスワードは8〜16文字です。", modal_btn: "アカウント作成", modal_pass: "パスワード (8-16文字)",
-    hero_banner: "Agnopolは、声と行動を通じて世界を変えるという共通の理想によって集まったオープンなコミュニティです。", hero_title: "すべての声が現実世界を変える！",
+    hero_banner: "Agnopolは、声と行動を通じて世界を変えるという共通の理想によって集まったオープンなコミュニティです。", 
+    hero_title: "世界のために声を上げ、自分のために行動する！",
     live_title: "現在進行中", live_empty: "リアルタイムの活動は公開後にここに表示されます。",
-    action_title: "今すぐ行動する", action_name: "お名前", action_email: "メールアドレス", action_country: "国/地域を選択", action_btn: "行動を確認",
+    action_title: "世界のために声を上げ、自分のために行動する", 
+    action_name: "お名前", action_email: "メールアドレス", action_country: "国/地域を選択", action_other: "その他", action_btn: "行動を確認",
     article_title: "注目の記事とレポート", img_placeholder: "画像",
     art1_title: "2026年 地球環境レポート", art1_desc: "個人の行動が今年いかにして生態学的危機を逆転させたか。",
     art2_title: "国境なき医療援助ネットワーク", art2_desc: "分散型組織が人道危機において物理的な障壁を越えて支援を提供する方法。",
@@ -452,9 +467,11 @@ const dict = {
   ko: {
     menu_about: "회사 소개", menu_donate: "기부", menu_join: "함께하기",
     modal_title: "Agnopol 가입", modal_desc: "주로 사용하는 이메일로 등록하세요. 비밀번호는 8~16자여야 합니다.", modal_btn: "계정 만들기", modal_pass: "비밀번호 (8-16자)",
-    hero_banner: "Agnopol은 목소리와 행동을 통해 세상을 바꾸려는 공통의 이상으로 모인 개방형 커뮤니티입니다.", hero_title: "모든 목소리가 현실 세계를 바꿉니다!",
+    hero_banner: "Agnopol은 목소리와 행동을 통해 세상을 바꾸려는 공통의 이상으로 모인 개방형 커뮤니티입니다.", 
+    hero_title: "세상을 위해 목소리를 내고, 자신을 위해 행동하세요!",
     live_title: "지금 진행 중", live_empty: "실시간 활동은 출시 후 여기에 표시됩니다.",
-    action_title: "지금 행동하기", 단독_name: "이름", action_email: "이메일", action_country: "국가/지역 선택", action_btn: "행동 확인",
+    action_title: "세상을 위해 목소리를 내고, 자신을 위해 행동하세요", 
+    action_name: "이름", action_email: "이메일", action_country: "국가/지역 선택", action_other: "기타", action_btn: "행동 확인",
     article_title: "주요 기사 및 보고서", img_placeholder: "이미지",
     art1_title: "2026 글로벌 환경 보고서", art1_desc: "올해 개인의 행동이 어떻게 생태 위기를 극복했는지 보여줍니다.",
     art2_title: "국경 없는 의료 지원 네트워크", art2_desc: "인도주의적 위기에서 분산형 조직이 물리적 장벽을 넘어 지원을 제공하는 방법.",
@@ -465,17 +482,45 @@ const dict = {
 
 function setLang(lang) {
   const data = dict[lang] || dict['en'];
+  
+  // 更新所有的普通文本
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (data[key]) el.innerText = data[key];
   });
+  
+  // 更新所有的 placeholder
   document.querySelectorAll("[data-placeholder]").forEach(el => {
     const key = el.getAttribute("data-placeholder");
     if (data[key]) el.setAttribute("placeholder", data[key]);
   });
+
+  // 使用浏览器原生 API 自动翻译国家列表！
+  // 这里做一个简单的语言代码映射，确保中文输出繁体 (zh-Hant)
+  const localeMap = {
+    'en': 'en', 'zh': 'zh-Hant', 'fr': 'fr', 'de': 'de', 
+    'es': 'es', 'it': 'it', 'ja': 'ja', 'ko': 'ko'
+  };
+  const targetLocale = localeMap[lang] || 'en';
+  
+  try {
+    const displayNames = new Intl.DisplayNames([targetLocale], { type: 'region' });
+    document.querySelectorAll("#countrySelect option").forEach(opt => {
+      // 排除默认占位符和我们自定义的 "OTHER"
+      if (opt.value && opt.value !== "OTHER") {
+        try {
+          opt.innerText = displayNames.of(opt.value);
+        } catch (e) {
+          // 如果遇到无法识别的冷门国家代码，保留原样
+        }
+      }
+    });
+  } catch (err) {
+    console.error("Browser does not support Intl.DisplayNames API");
+  }
 }
 
-// Initialize default language to English
+// 页面加载时初始化为英语
 setLang('en');
 </script>
 
