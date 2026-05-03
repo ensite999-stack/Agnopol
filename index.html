@@ -1,198 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agnopol — Where action becomes reality</title>
-<meta name="description" content="A decentralized network connecting individual thought and action to change the world.">
+<title>Agnopol — 个体行动，正在改变世界</title>
 
 <style>
 :root {
-    --bg-page: #F4FAFF;
-    --bg-card: #FFFFFF;
-
-    --accent-blue: #4DA3FF;
-    --accent-green: #2F6B4F;
-
-    --text-primary: #0F1720;
-    --text-secondary: #4A5560;
-    --text-muted: #8A94A3;
-
-    --border: rgba(0,0,0,0.05);
+    --blue:#4DA3FF;
+    --green:#2F6B4F;
+    --text:#0F1720;
+    --sub:#4A5560;
+    --border:rgba(0,0,0,0.06);
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Helvetica, Arial;
-    background: linear-gradient(180deg,#F4FAFF 0%,#FFFFFF 100%);
-    color: var(--text-primary);
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Helvetica;
+    background:linear-gradient(180deg,#F4FAFF,#FFFFFF);
+    color:var(--text);
 }
 
 /* header */
-header {
-    position: sticky;
+header{
+    position:sticky;
     top:0;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(20px);
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(20px);
     border-bottom:1px solid var(--border);
 }
-
-.header-inner {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.header-inner{
     max-width:1100px;
     margin:auto;
+    display:flex;
+    justify-content:space-between;
     padding:14px 20px;
 }
-
-.logo {
+.logo{
     font-weight:800;
     font-size:1.6rem;
-    letter-spacing:-0.8px;
+    letter-spacing:-0.5px;
 }
-
-.menu-btn {
+.menu-btn{
     border:1px solid var(--border);
     padding:8px 16px;
     border-radius:20px;
-    cursor:pointer;
     background:white;
-}
-
-/* menu */
-.menu-panel {
-    display:none;
-    position:fixed;
-    right:20px;
-    top:60px;
-    background:white;
-    border-radius:12px;
-    padding:16px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-.menu-panel.open { display:block; }
-
-.menu-panel a {
-    display:block;
-    padding:8px 0;
-    color:var(--text-primary);
-    text-decoration:none;
 }
 
 /* hero */
-.hero {
+.hero{
     text-align:center;
     padding:120px 20px 80px;
+    position:relative;
+    overflow:hidden;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,rgba(77,163,255,0.25),transparent);
+    top:-150px;left:-150px;
+}
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle,rgba(47,107,79,0.25),transparent);
+    bottom:-150px;right:-150px;
 }
 
-.hero h1 {
-    font-size:3.6rem;
+.hero h1{
+    font-size:3rem;
     font-weight:800;
-    letter-spacing:-1.2px;
+    letter-spacing:-1px;
 }
 
-.hero p {
-    font-size:1.25rem;
-    color:var(--text-secondary);
-    max-width:700px;
-    margin:20px auto 40px;
+.hero .sub{
+    font-size:1.2rem;
+    color:var(--sub);
+    margin:18px 0 30px;
 }
 
 /* buttons */
-.btn {
-    padding:12px 26px;
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+.btn{
+    min-width:150px;
+    height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     border-radius:24px;
     text-decoration:none;
     font-size:0.95rem;
 }
-
-.btn-primary {
-    background:linear-gradient(135deg,var(--accent-blue),var(--accent-green));
+.btn-primary{
+    background:linear-gradient(135deg,var(--blue),var(--green));
     color:white;
 }
-
-.btn-outline {
-    border:1.5px solid var(--accent-green);
-    color:var(--accent-green);
+.btn-outline{
+    border:1.5px solid var(--green);
+    color:var(--green);
 }
 
-/* container */
-.container {
+/* tagline */
+.tagline{
+    margin-top:20px;
+    font-size:0.85rem;
+    opacity:0.6;
+}
+
+/* section */
+.container{
     max-width:1100px;
     margin:auto;
     padding:0 20px;
 }
-
-/* section */
-.section-title {
+.section-title{
     margin:60px 0 20px;
     font-weight:600;
-    position:relative;
 }
 
-.section-title::after {
-    content:"";
-    width:40px;
-    height:3px;
-    background:linear-gradient(90deg,var(--accent-blue),var(--accent-green));
-    position:absolute;
-    bottom:-6px;
-    left:0;
-}
-
-/* action card */
-.action-card {
+/* cards */
+.action-card{
     background:white;
-    border-radius:16px;
-    padding:20px;
-    margin-bottom:20px;
     border:1px solid var(--border);
-    transition:0.2s;
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:16px;
 }
-
-.action-card:hover {
-    transform:translateY(-4px);
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.action-title{font-weight:600;}
+.action-desc{
+    color:var(--sub);
+    margin:8px 0;
 }
-
-.action-title {
-    font-size:1.2rem;
-    font-weight:600;
-}
-
-.action-desc {
-    color:var(--text-secondary);
-    margin:10px 0;
-}
-
-.action-meta {
+.action-meta{
     font-size:0.85rem;
-    color:var(--text-muted);
-    margin-bottom:12px;
+    color:#888;
+    margin-bottom:10px;
+}
+.action-actions{
+    display:flex;
+    gap:10px;
+}
+.action-actions .btn{
+    flex:1;
 }
 
-/* live feed */
-.feed-item {
+/* feed */
+.feed-item{
     padding:12px 0;
     border-bottom:1px solid var(--border);
-    color:var(--text-secondary);
+    color:var(--sub);
+}
+
+/* CTA */
+.cta{
+    text-align:center;
+    margin:60px 0;
+    padding:40px 20px;
+    border-radius:16px;
+    background:linear-gradient(135deg,#4DA3FF,#2F6B4F);
+    color:white;
 }
 
 /* footer */
-footer {
+footer{
     background:#0B0D10;
     color:#A0A7B2;
     padding:40px 20px;
-    margin-top:60px;
 }
-
-footer a {
-    color:#A0A7B2;
-    text-decoration:none;
+.footer-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
+.footer-links,.footer-lang{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    font-size:0.85rem;
+}
+footer strong{color:white;}
 </style>
 </head>
 
@@ -201,101 +200,91 @@ footer a {
 <header>
 <div class="header-inner">
     <div class="logo">Agnopol</div>
-    <button class="menu-btn" onclick="menuToggle()">Menu</button>
+    <button class="menu-btn">Menu</button>
 </div>
 </header>
-
-<div id="menu" class="menu-panel">
-    <a href="#">Actions</a>
-    <a href="#">Stories</a>
-    <a href="#">Discussions</a>
-    <a href="#">Publish</a>
-    <hr>
-    <a href="#">Sign in</a>
-    <a href="#">Create account</a>
-    <hr>
-    <a href="#">English</a>
-    <a href="#">Français</a>
-    <a href="#">Deutsch</a>
-    <a href="#">Español</a>
-    <a href="#">Italiano</a>
-    <a href="#">日本語</a>
-    <a href="#">한국어</a>
-    <a href="#">繁體中文</a>
-</div>
 
 <main>
 
 <section class="hero">
-    <h1>Where you stand, the world begins to change.</h1>
-    <p>Individual actions are unfolding across the world — record yours, or join one.</p>
-    <a href="#" class="btn btn-primary">Join an Action</a>
-    <a href="#" class="btn btn-outline">Record Your Action</a>
+    <h1>个体行动，正在改变世界</h1>
+    <p class="sub">世界正在变化，你是否选择参与？</p>
+
+    <div class="btn-group">
+        <a href="#" class="btn btn-primary">参与行动</a>
+        <a href="#" class="btn btn-outline">发起行动</a>
+    </div>
+
+    <div class="tagline">
+        存在之处，世界正在成为世界
+    </div>
 </section>
 
 <section class="container">
-    <h2 class="section-title">Current Actions</h2>
+<h2 class="section-title">当前行动</h2>
 
-    <div class="action-card">
-        <div class="action-title">Clean Water Initiative</div>
-        <div class="action-desc">Support access to clean water in underserved areas.</div>
-        <div class="action-meta">87 participants · 12 records</div>
-        <a href="#" class="btn btn-primary">Join</a>
-    </div>
+<div class="action-card">
+<div class="action-title">水源正在消失</div>
+<div class="action-desc">在一些地区，安全饮用水正在变得不可获得。</div>
+<div class="action-meta">87人参与 · 12条记录</div>
+<div class="action-actions">
+<a href="#" class="btn btn-primary">参与</a>
+<a href="#" class="btn btn-outline">记录</a>
+</div>
+</div>
 
-    <div class="action-card">
-        <div class="action-title">Urban Tree Planting</div>
-        <div class="action-desc">Rebuild green spaces in urban environments.</div>
-        <div class="action-meta">54 participants · 8 records</div>
-        <a href="#" class="btn btn-primary">Join</a>
-    </div>
+<div class="action-card">
+<div class="action-title">城市绿地正在减少</div>
+<div class="action-desc">城市扩张正在压缩自然空间。</div>
+<div class="action-meta">54人参与 · 8条记录</div>
+<div class="action-actions">
+<a href="#" class="btn btn-primary">参与</a>
+<a href="#" class="btn btn-outline">记录</a>
+</div>
+</div>
 
 </section>
 
 <section class="container">
-    <h2 class="section-title">Live Activity</h2>
+<h2 class="section-title">正在发生</h2>
 
-    <div class="feed-item">Someone recorded an action in Tokyo</div>
-    <div class="feed-item">New initiative launched in Berlin</div>
-    <div class="feed-item">A participant joined a water project</div>
+<div class="feed-item"><strong>2分钟前</strong> · 有人在东京记录行动</div>
+<div class="feed-item"><strong>6分钟前</strong> · 新行动在柏林发起</div>
+<div class="feed-item"><strong>10分钟前</strong> · 一位参与者加入水资源项目</div>
 
 </section>
 
-<section class="container" style="text-align:center; margin-top:60px;">
-    <p style="color:var(--text-secondary); margin-bottom:20px;">
-        After registering, your actions and records become part of a global evidence network.
-    </p>
-    <a href="#" class="btn btn-primary">Create Account</a>
+<section class="container">
+<div class="cta">
+<h2>发起你的行动</h2>
+<p>你的行动，将成为世界的一部分</p>
+<br>
+<a href="#" class="btn btn-primary">开始行动</a>
+</div>
 </section>
 
 </main>
 
 <footer>
-<div style="max-width:1100px;margin:auto;display:flex;justify-content:space-between;flex-wrap:wrap;">
-    <div>
-        <a href="#">About</a> ·
-        <a href="#">Terms</a> ·
-        <a href="#">Privacy</a>
-    </div>
-    <div>
-        © <span id="year"></span> Agnopol
-    </div>
+<div class="footer-inner">
+
+<div>
+<strong>Agnopol</strong>
+<p style="margin-top:6px;">一个连接个体行动与现实影响的去中心化开放网络</p>
+</div>
+
+<div class="footer-links">
+<a href="#">About</a>
+<a href="#">Terms</a>
+<a href="#">Privacy</a>
+</div>
+
+<div class="footer-lang">
+EN · FR · DE · ES · IT · JA · KO · ZH
+</div>
+
 </div>
 </footer>
-
-<script>
-function menuToggle(){
-    document.getElementById("menu").classList.toggle("open");
-}
-
-document.getElementById("year").innerText = new Date().getFullYear();
-
-document.addEventListener('click', function(e){
-    if(!e.target.closest('.menu-btn') && !e.target.closest('.menu-panel')){
-        document.getElementById('menu').classList.remove('open');
-    }
-});
-</script>
 
 </body>
 </html>
