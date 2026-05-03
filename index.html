@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agnopol — 个体行动，正在改变世界</title>
+<title>Agnopol</title>
 
 <style>
 :root{
     --blue:#4DA3FF;
     --green:#2F6B4F;
     --text:#0F1720;
-    --sub:#5A6470;
+    --sub:#6B7280;
     --border:rgba(0,0,0,0.06);
 }
 
@@ -27,166 +27,109 @@ body{
 header{
     position:sticky;
     top:0;
-    background:rgba(255,255,255,0.9);
-    backdrop-filter:blur(20px);
+    background:#fff;
     border-bottom:1px solid var(--border);
-    z-index:100;
 }
 .header-inner{
     max-width:1100px;
     margin:auto;
     display:flex;
     justify-content:space-between;
+    align-items:center;
     padding:14px 20px;
 }
 .logo{
     font-size:1.6rem;
     font-weight:800;
-}
-.menu-btn{
-    border:1px solid var(--border);
-    padding:8px 16px;
-    border-radius:20px;
-    background:white;
+    letter-spacing:-0.5px;
 }
 
-/* HERO IMPACT */
-.hero-impact{
-    height:420px;
-    background:url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200') center/cover;
-    position:relative;
+/* MENU */
+.menu{
     display:flex;
-    align-items:flex-end;
-}
-.hero-impact::after{
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background:linear-gradient(transparent, rgba(0,0,0,0.75));
-}
-
-.impact-content{
-    position:relative;
-    z-index:2;
-    color:white;
-    padding:20px;
-}
-
-.impact-content h1{
-    font-size:1.8rem;
-    font-weight:700;
-}
-
-.impact-content p{
-    margin:10px 0 15px;
-    color:rgba(255,255,255,0.85);
-}
-
-/* BUTTON */
-.btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    height:44px;
-    padding:0 20px;
-    border-radius:22px;
-    text-decoration:none;
+    gap:16px;
     font-size:0.9rem;
 }
-.btn-primary{
-    background:linear-gradient(135deg,var(--blue),var(--green));
-    color:#fff;
-}
-
-/* ABOUT LINK */
-.about-link{
-    margin-top:12px;
-    font-size:0.85rem;
-}
-.about-link a{
-    color:rgba(255,255,255,0.8);
-    text-decoration:underline;
+.menu a{
+    text-decoration:none;
+    color:var(--text);
 }
 
 /* TAGLINE */
 .tagline{
     text-align:center;
-    margin:30px 0 10px;
-    font-size:0.85rem;
-    opacity:0.6;
+    margin:60px 20px 20px;
+}
+.tagline a{
+    text-decoration:none;
+    color:var(--sub);
+    font-size:0.95rem;
 }
 
-/* CONTAINER */
+/* SECTION */
 .container{
     max-width:1100px;
     margin:auto;
     padding:0 20px;
 }
 .section-title{
-    margin:50px 0 20px;
+    margin:40px 0 20px;
     font-weight:600;
 }
 
-/* ACTION CARDS */
-.action-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:16px;
-    margin-bottom:14px;
-}
-.action-title{font-weight:600;}
-.action-desc{color:var(--sub);margin:8px 0;}
-.action-meta{font-size:0.8rem;color:#888;margin-bottom:10px;}
-
-.action-actions{
-    display:flex;
-    gap:10px;
-}
-.action-actions a{
-    flex:1;
+/* ACTION PLACEHOLDER */
+.action-placeholder{
+    border:1px dashed var(--border);
+    border-radius:12px;
+    padding:30px;
     text-align:center;
-}
-
-/* FEED */
-.feed-item{
-    padding:12px 0;
-    border-bottom:1px solid var(--border);
     color:var(--sub);
-    font-size:0.9rem;
-}
-
-/* CTA */
-.cta{
-    margin:60px 0;
-    padding:40px 20px;
-    text-align:center;
-    border-radius:14px;
-    background:linear-gradient(135deg,var(--blue),var(--green));
-    color:white;
 }
 
 /* FOOTER */
 footer{
     background:#0B0D10;
-    color:#A0A7B2;
-    padding:40px 20px;
+    color:#9CA3AF;
+    padding:50px 20px;
+    margin-top:80px;
 }
 .footer-inner{
     max-width:1100px;
     margin:auto;
     display:flex;
-    flex-direction:column;
-    gap:20px;
-}
-.footer-links,.footer-lang{
-    display:flex;
+    justify-content:space-between;
     flex-wrap:wrap;
-    gap:12px;
+    gap:30px;
+}
+
+/* left */
+.footer-left{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
     font-size:0.85rem;
 }
-footer strong{color:white;}
+.footer-left a{
+    color:#9CA3AF;
+    text-decoration:none;
+}
+
+/* right brand */
+.footer-brand{
+    font-size:2rem;
+    font-weight:900;
+    letter-spacing:-1px;
+    color:white;
+    opacity:0.9;
+    filter:blur(0.3px);
+}
+
+/* language */
+.footer-lang{
+    margin-top:20px;
+    font-size:0.8rem;
+    color:#6B7280;
+}
 </style>
 </head>
 
@@ -195,91 +138,64 @@ footer strong{color:white;}
 <header>
 <div class="header-inner">
     <div class="logo">Agnopol</div>
-    <button class="menu-btn">Menu</button>
+
+    <nav class="menu">
+        <a href="#">Join</a>
+        <a href="about.html">About</a>
+        <a href="#">Donate</a>
+        <a href="#">Contact</a>
+    </nav>
 </div>
 </header>
 
-<!-- 第一屏：热点 -->
-<section class="hero-impact">
-    <div class="impact-content">
-        <h1>苏丹：停止对平民的暴力</h1>
-        <p>冲突仍在持续，个体行动正在发生</p>
-
-        <a href="#" class="btn btn-primary">参与行动</a>
-
-        <div class="about-link">
-            <a href="about.html">为什么这些行动正在发生？</a>
-        </div>
-    </div>
-</section>
-
-<!-- 品牌句 -->
+<!-- TAGLINE (可点击) -->
 <div class="tagline">
-存在之处，世界正在成为世界
+    <a href="about.html">
+        存在之处，世界正在成为世界
+    </a>
 </div>
 
-<!-- 当前行动 -->
+<!-- CURRENT ACTION (占位) -->
 <section class="container">
-<h2 class="section-title">当前行动</h2>
+<h2 class="section-title">Current Actions</h2>
 
-<div class="action-card">
-<div class="action-title">水源正在消失</div>
-<div class="action-desc">安全饮用水正在变得不可获得。</div>
-<div class="action-meta">87人参与 · 12条记录</div>
-<div class="action-actions">
-<a href="#" class="btn btn-primary">参与</a>
-<a href="#" class="btn">记录</a>
+<div class="action-placeholder">
+    Actions will appear here.
 </div>
-</div>
-
-<div class="action-card">
-<div class="action-title">城市绿地正在减少</div>
-<div class="action-desc">自然空间正在被压缩。</div>
-<div class="action-meta">54人参与 · 8条记录</div>
-<div class="action-actions">
-<a href="#" class="btn btn-primary">参与</a>
-<a href="#" class="btn">记录</a>
-</div>
-</div>
-
 </section>
 
-<!-- 正在发生 -->
+<!-- FEED (占位) -->
 <section class="container">
-<h2 class="section-title">正在发生</h2>
+<h2 class="section-title">Live Activity</h2>
 
-<div class="feed-item">2分钟前 · 有人在东京记录行动</div>
-<div class="feed-item">6分钟前 · 柏林发起新行动</div>
-<div class="feed-item">10分钟前 · 新参与者加入水项目</div>
-
-</section>
-
-<!-- CTA -->
-<section class="container">
-<div class="cta">
-<h2>发起你的行动</h2>
-<p>你的行动，将成为世界的一部分</p>
-<br>
-<a href="#" class="btn btn-primary">开始行动</a>
+<div class="action-placeholder">
+    Real-time activity will appear here.
 </div>
 </section>
 
 <footer>
 <div class="footer-inner">
 
-<div>
-<strong>Agnopol</strong>
-<p>一个连接个体行动与现实影响的去中心化开放网络</p>
+<div class="footer-left">
+    <a href="about.html">About</a>
+    <a href="#">Archive</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Legal</a>
+    <a href="#">Contact</a>
+    <a href="#">Rights Statement</a>
+
+    <div class="footer-lang">
+        EN · FR · DE · ES · IT · JA · KO · ZH-HANT
+    </div>
+
+    <div style="margin-top:10px;font-size:0.8rem;">
+        contact@agnopol.xyz
+    </div>
 </div>
 
-<div class="footer-links">
-<a href="#">About</a>
-<a href="#">Terms</a>
-<a href="#">Privacy</a>
-</div>
-
-<div class="footer-lang">
-EN · FR · DE · ES · IT · JA · KO · ZH
+<div class="footer-brand">
+    AGNOPOL
 </div>
 
 </div>
