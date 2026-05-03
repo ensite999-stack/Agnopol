@@ -20,11 +20,6 @@
 <link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
 <link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
 
-<!-- GEO -->
-<meta name="geo.region" content="GLOBAL">
-<meta name="geo.placename" content="Worldwide">
-<meta name="ICBM" content="0,0">
-
 <!-- OpenGraph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Agnopol">
@@ -44,281 +39,247 @@
 
 <style>
 :root{
---blue:#4DA3FF;
---green:#2F6B4F;
---text:#0F1720;
---sub:#6B7280;
---border:rgba(0,0,0,0.06);
+  --blue:#4DA3FF;
+  --green:#2F6B4F;
+  --text:#0F1720;
+  --sub:#6B7280;
+  --border:rgba(0,0,0,0.06);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Helvetica,Arial;
-background:#fff;
-color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Helvetica,Arial,sans-serif;
+  background:#fff;
+  color:var(--text);
 }
 
-/* HEADER */
+/* Header */
 header{
-position:sticky;
-top:0;
-background:#fff;
-border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:10;
+  background:#fff;
+  border-bottom:1px solid var(--border);
 }
 .header-inner{
-max-width:1100px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:14px 20px;
+  max-width:1100px; margin:auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
 }
-.logo{
-font-size:1.6rem;
-font-weight:900;
-}
+.logo{ font-weight:900; font-size:1.6rem; letter-spacing:-0.5px; }
+.menu{ display:flex; gap:18px; font-size:0.9rem; }
+.menu a{ color:var(--text); text-decoration:none; }
 
-/* MENU */
-.menu{
-display:flex;
-gap:18px;
-font-size:0.9rem;
-}
-.menu a{
-text-decoration:none;
-color:var(--text);
-}
-
-/* HERO */
+/* Hero (热点占位) */
 .hero{
-height:360px;
-background:linear-gradient(135deg,#4DA3FF,#2F6B4F);
-display:flex;
-align-items:flex-end;
+  height:380px;
+  background:linear-gradient(135deg,var(--blue),var(--green));
+  display:flex; align-items:flex-end;
 }
 .hero-inner{
-max-width:1100px;
-margin:auto;
-padding:20px;
-color:white;
+  max-width:1100px; margin:auto; width:100%;
+  padding:22px 20px; color:#fff;
 }
-.hero h1{
-font-size:1.6rem;
-font-weight:700;
-}
-.hero p{
-font-size:0.95rem;
-opacity:0.9;
-}
+.hero h1{ font-size:1.6rem; font-weight:700; }
+.hero p{ margin-top:8px; opacity:.9; }
 
-/* TAGLINE */
-.tagline{
-text-align:center;
-margin:30px 0;
-}
-.tagline a{
-text-decoration:none;
-color:var(--sub);
-}
+/* Tagline */
+.tagline{ text-align:center; margin:28px 0 10px; }
+.tagline a{ color:var(--sub); text-decoration:none; font-size:.95rem; }
 
-/* SECTION */
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
-}
-.section-title{
-margin:40px 0 20px;
-font-weight:600;
-}
-
-/* PLACEHOLDER */
+/* Sections */
+.container{ max-width:1100px; margin:auto; padding:0 20px; }
+.section-title{ margin:40px 0 16px; font-weight:600; }
 .placeholder{
-border:1px dashed var(--border);
-border-radius:12px;
-padding:30px;
-text-align:center;
-color:var(--sub);
+  border:1px dashed var(--border);
+  border-radius:12px;
+  padding:28px; text-align:center; color:var(--sub);
 }
 
-/* FOOTER */
+/* Footer (Avaaz-like) */
 footer{
-background:#000;
-color:#A1A1AA;
-margin-top:80px;
-position:relative;
-overflow:hidden;
+  background:#000; color:#A1A1AA;
+  margin-top:80px; position:relative; overflow:hidden;
 }
-
 .footer-bg{
-position:absolute;
-bottom:-20px;
-right:-40px;
-font-size:11rem;
-font-weight:900;
-color:#fff;
-opacity:0.025;
-letter-spacing:-4px;
-pointer-events:none;
+  position:absolute; right:-40px; bottom:-20px;
+  font-size:11rem; font-weight:900;
+  color:#fff; opacity:.025; letter-spacing:-4px;
+  pointer-events:none;
 }
-
 .footer-inner{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-display:flex;
+  max-width:1100px; margin:auto;
+  padding:60px 20px;
+  display:flex;
 }
-
 .footer-left{
-display:flex;
-flex-direction:column;
-gap:12px;
-font-size:0.85rem;
+  display:flex; flex-direction:column; gap:12px; font-size:.85rem;
 }
+.footer-left a{ color:#A1A1AA; text-decoration:none; }
+.footer-left a:hover{ color:#fff; }
 
-.footer-left a{
-color:#A1A1AA;
-text-decoration:none;
-}
+/* Language above copyright */
+.footer-lang{ margin-top:25px; font-size:.8rem; color:#6B7280; }
+.footer-lang span{ margin-right:12px; cursor:pointer; }
 
-.footer-left a:hover{
-color:#fff;
-}
-
-.footer-lang{
-margin-top:25px;
-font-size:0.8rem;
-color:#6B7280;
-}
-.footer-lang span{
-margin-right:12px;
-cursor:pointer;
-}
-
-.footer-contact{
-margin-top:12px;
-}
-
-.footer-copy{
-margin-top:12px;
-font-size:0.75rem;
-color:#6B7280;
-}
+.footer-contact{ margin-top:12px; }
+.footer-copy{ margin-top:12px; font-size:.75rem; color:#6B7280; }
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="header-inner">
-<div class="logo">Agnopol</div>
-
-<nav class="menu">
-<a href="#" data-i18n="join">Join</a>
-<a href="about.html" data-i18n="about">About</a>
-<a href="#" data-i18n="donate">Donate</a>
-<a href="#" data-i18n="contact">Contact</a>
-</nav>
-</div>
+  <div class="header-inner">
+    <div class="logo">Agnopol</div>
+    <nav class="menu">
+      <a href="#" data-i18n="join">Join</a>
+      <a href="about.html" data-i18n="about">About</a>
+      <a href="#" data-i18n="donate">Donate</a>
+      <a href="#" data-i18n="contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<!-- HERO -->
+<!-- Hero -->
 <section class="hero">
-<div class="hero-inner">
-<h1 data-i18n="hero">A featured action will appear here</h1>
-<p data-i18n="hero_sub">A current situation and a way to participate will be presented.</p>
-</div>
+  <div class="hero-inner">
+    <h1 data-i18n="hero_title">A featured action will appear here</h1>
+    <p data-i18n="hero_sub">A current situation and a way to participate will be presented.</p>
+  </div>
 </section>
 
-<!-- TAGLINE -->
+<!-- Tagline -->
 <div class="tagline">
-<a href="about.html" data-i18n="tagline">
-Where you stand, the world becomes the world.
-</a>
+  <a href="about.html" data-i18n="tagline">
+    Where you stand, the world becomes the world.
+  </a>
 </div>
 
-<!-- CURRENT -->
+<!-- Current -->
 <section class="container">
-<h2 class="section-title" data-i18n="current">Current Actions</h2>
-<div class="placeholder" data-i18n="ph1">Content will be available after launch</div>
+  <h2 class="section-title" data-i18n="current">Current Actions</h2>
+  <div class="placeholder" data-i18n="ph1">Content will be available after launch</div>
 </section>
 
-<!-- LIVE -->
+<!-- Live -->
 <section class="container">
-<h2 class="section-title" data-i18n="live">Live Activity</h2>
-<div class="placeholder" data-i18n="ph2">Real-time actions will appear here</div>
+  <h2 class="section-title" data-i18n="live">Live Activity</h2>
+  <div class="placeholder" data-i18n="ph2">Real-time actions will appear here</div>
 </section>
 
 <footer>
+  <div class="footer-bg">AGNOPOL</div>
 
-<div class="footer-bg">AGNOPOL</div>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="about.html" data-i18n="about">About</a>
+      <a href="#" data-i18n="archive">Archive</a>
+      <a href="#" data-i18n="privacy">Privacy Policy</a>
+      <a href="#" data-i18n="terms">Terms of Use</a>
+      <a href="#" data-i18n="legal">Legal</a>
+      <a href="#" data-i18n="contact">Contact</a>
 
-<div class="footer-inner">
+      <div class="footer-lang">
+        <span onclick="setLang('en')">EN</span>
+        <span onclick="setLang('fr')">FR</span>
+        <span onclick="setLang('de')">DE</span>
+        <span onclick="setLang('es')">ES</span>
+        <span onclick="setLang('it')">IT</span>
+        <span onclick="setLang('ja')">JA</span>
+        <span onclick="setLang('ko')">KO</span>
+        <span onclick="setLang('zh')">繁體</span>
+      </div>
 
-<div class="footer-left">
-<a href="about.html" data-i18n="about">About</a>
-<a href="#" data-i18n="archive">Archive</a>
-<a href="#" data-i18n="privacy">Privacy Policy</a>
-<a href="#" data-i18n="terms">Terms of Use</a>
-<a href="#" data-i18n="legal">Legal</a>
-
-<div class="footer-lang">
-<span onclick="setLang('en')">EN</span>
-<span onclick="setLang('fr')">FR</span>
-<span onclick="setLang('de')">DE</span>
-<span onclick="setLang('es')">ES</span>
-<span onclick="setLang('it')">IT</span>
-<span onclick="setLang('ja')">JA</span>
-<span onclick="setLang('ko')">KO</span>
-<span onclick="setLang('zh')">繁體</span>
-</div>
-
-<div class="footer-contact">
-Contact us: contact@agnopol.xyz
-</div>
-
-<div class="footer-copy">
-© 2026 Agnopol. All rights reserved.
-</div>
-
-</div>
-
-</div>
-
+      <div class="footer-contact">Contact us: contact@agnopol.xyz</div>
+      <div class="footer-copy">© 2026 Agnopol. All rights reserved.</div>
+    </div>
+  </div>
 </footer>
 
 <script>
 const dict = {
-en:{
-join:"Join",about:"About",donate:"Donate",contact:"Contact",
-hero:"A featured action will appear here",
-hero_sub:"A current situation and a way to participate will be presented.",
-tagline:"Where you stand, the world becomes the world.",
-current:"Current Actions",live:"Live Activity",
-ph1:"Content will be available after launch",
-ph2:"Real-time actions will appear here",
-archive:"Archive",privacy:"Privacy Policy",terms:"Terms of Use",legal:"Legal"
-},
-zh:{
-join:"加入",about:"關於我們",donate:"捐贈",contact:"聯絡我們",
-hero:"此處將顯示重點行動",
-hero_sub:"將呈現當前情況與參與方式",
-tagline:"存在之處，世界正在成為世界",
-current:"當前行動",live:"正在發生",
-ph1:"內容將於上線後呈現",
-ph2:"即時活動將顯示於此",
-archive:"檔案",privacy:"隱私權政策",terms:"使用條款",legal:"法律"
-}
+  en:{
+    join:"Join",about:"About",donate:"Donate",contact:"Contact",
+    hero_title:"A featured action will appear here",
+    hero_sub:"A current situation and a way to participate will be presented.",
+    tagline:"Where you stand, the world becomes the world.",
+    current:"Current Actions",live:"Live Activity",
+    ph1:"Content will be available after launch",
+    ph2:"Real-time actions will appear here",
+    archive:"Archive",privacy:"Privacy Policy",terms:"Terms of Use",legal:"Legal"
+  },
+  fr:{ join:"Rejoindre",about:"À propos",donate:"Donner",contact:"Contact",
+    hero_title:"Une action mise en avant apparaîtra ici",
+    hero_sub:"Une situation actuelle et un moyen d’y participer seront présentés.",
+    tagline:"Là où vous êtes, le monde devient le monde.",
+    current:"Actions en cours",live:"Activité en direct",
+    ph1:"Le contenu sera disponible après le lancement",
+    ph2:"Les activités en temps réel apparaîtront ici",
+    archive:"Archives",privacy:"Confidentialité",terms:"Conditions",legal:"Mentions légales"
+  },
+  de:{ join:"Mitmachen",about:"Über uns",donate:"Spenden",contact:"Kontakt",
+    hero_title:"Eine hervorgehobene Aktion erscheint hier",
+    hero_sub:"Eine aktuelle Situation und eine Teilnahmeoption werden gezeigt.",
+    tagline:"Wo du stehst, wird die Welt zur Welt.",
+    current:"Aktuelle Aktionen",live:"Live-Aktivität",
+    ph1:"Inhalte sind nach dem Start verfügbar",
+    ph2:"Echtzeit-Aktivitäten erscheinen hier",
+    archive:"Archiv",privacy:"Datenschutz",terms:"Nutzungsbedingungen",legal:"Rechtliches"
+  },
+  es:{ join:"Unirse",about:"Acerca de",donate:"Donar",contact:"Contacto",
+    hero_title:"Aquí aparecerá una acción destacada",
+    hero_sub:"Se mostrará una situación actual y cómo participar.",
+    tagline:"Donde estás, el mundo se convierte en mundo.",
+    current:"Acciones actuales",live:"Actividad en vivo",
+    ph1:"El contenido estará disponible tras el lanzamiento",
+    ph2:"La actividad en tiempo real aparecerá aquí",
+    archive:"Archivo",privacy:"Privacidad",terms:"Términos",legal:"Legal"
+  },
+  it:{ join:"Unisciti",about:"Chi siamo",donate:"Dona",contact:"Contatti",
+    hero_title:"Qui apparirà un’azione in evidenza",
+    hero_sub:"Verranno mostrati una situazione attuale e come partecipare.",
+    tagline:"Dove ti trovi, il mondo diventa mondo.",
+    current:"Azioni correnti",live:"Attività in tempo reale",
+    ph1:"I contenuti saranno disponibili dopo il lancio",
+    ph2:"Le attività in tempo reale appariranno qui",
+    archive:"Archivio",privacy:"Privacy",terms:"Termini",legal:"Legale"
+  },
+  ja:{ join:"参加",about:"私たちについて",donate:"寄付",contact:"お問い合わせ",
+    hero_title:"ここに注目のアクションが表示されます",
+    hero_sub:"現在の状況と参加方法が表示されます。",
+    tagline:"あなたがいる場所で、世界は世界になる。",
+    current:"現在のアクション",live:"ライブ活動",
+    ph1:"コンテンツは公開後に表示されます",
+    ph2:"リアルタイムの活動が表示されます",
+    archive:"アーカイブ",privacy:"プライバシー",terms:"利用規約",legal:"法的情報"
+  },
+  ko:{ join:"참여",about:"소개",donate:"기부",contact:"문의",
+    hero_title:"여기에 주요 행동이 표시됩니다",
+    hero_sub:"현재 상황과 참여 방법이 표시됩니다.",
+    tagline:"당신이 있는 곳에서, 세계는 세계가 된다.",
+    current:"현재 행동",live:"실시간 활동",
+    ph1:"출시 후 콘텐츠가 표시됩니다",
+    ph2:"실시간 활동이 표시됩니다",
+    archive:"아카이브",privacy:"개인정보",terms:"이용약관",legal:"법적 고지"
+  },
+  zh:{ join:"加入",about:"關於我們",donate:"捐贈",contact:"聯絡我們",
+    hero_title:"此處將顯示重點行動",
+    hero_sub:"將呈現當前情況與參與方式",
+    tagline:"存在之處，世界正在成為世界",
+    current:"當前行動",live:"正在發生",
+    ph1:"內容將於上線後呈現",
+    ph2:"即時活動將顯示於此",
+    archive:"檔案",privacy:"隱私權政策",terms:"使用條款",legal:"法律"
+  }
 };
 
 function setLang(lang){
-document.querySelectorAll("[data-i18n]").forEach(el=>{
-const key=el.getAttribute("data-i18n");
-if(dict[lang] && dict[lang][key]){
-el.innerText=dict[lang][key];
-}
-});
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(dict[lang] && dict[lang][k]){
+      el.innerText = dict[lang][k];
+    }
+  });
 }
 </script>
 
