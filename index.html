@@ -4,43 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agnopol — Individual actions shaping the world</title>
-<meta name="description" content="A decentralized network connecting individual actions to real-world impact.">
-
-<link rel="canonical" href="https://agnopol.xyz/">
-
-<!-- Hreflang -->
-<link rel="alternate" hreflang="en" href="https://agnopol.xyz/en/">
-<link rel="alternate" hreflang="fr" href="https://agnopol.xyz/fr/">
-<link rel="alternate" hreflang="de" href="https://agnopol.xyz/de/">
-<link rel="alternate" hreflang="es" href="https://agnopol.xyz/es/">
-<link rel="alternate" hreflang="it" href="https://agnopol.xyz/it/">
-<link rel="alternate" hreflang="ja" href="https://agnopol.xyz/ja/">
-<link rel="alternate" hreflang="ko" href="https://agnopol.xyz/ko/">
-<link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
-<link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
-
-<!-- GEO -->
-<meta name="geo.region" content="GLOBAL">
-<meta name="geo.placename" content="Worldwide">
-<meta name="ICBM" content="0,0">
-
-<!-- OpenGraph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Agnopol">
-<meta property="og:description" content="Individual actions shaping the world.">
-<meta property="og:image" content="https://agnopol.xyz/og.jpg">
-
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Organization",
- "name": "Agnopol",
- "url": "https://agnopol.xyz",
- "email": "contact@agnopol.xyz"
-}
-</script>
+<title>Agnopol</title>
 
 <style>
 :root{
@@ -75,9 +39,11 @@ align-items:center;
 padding:14px 20px;
 }
 .logo{
-font-weight:800;
 font-size:1.6rem;
+font-weight:800;
 }
+
+/* MENU */
 .menu{
 display:flex;
 gap:18px;
@@ -95,11 +61,10 @@ background:linear-gradient(135deg,#4DA3FF,#2F6B4F);
 display:flex;
 align-items:flex-end;
 padding:20px;
-color:#fff;
+color:white;
 }
 .hero h1{
-font-size:1.5rem;
-font-weight:700;
+font-size:1.4rem;
 }
 
 /* TAGLINE */
@@ -142,13 +107,13 @@ overflow:hidden;
 
 .footer-bg{
 position:absolute;
-bottom:10px;
-right:20px;
-font-size:6rem;
+bottom:0;
+right:0;
+font-size:8rem;
 font-weight:900;
 color:white;
-opacity:0.04;
-filter:blur(1px);
+opacity:0.03;
+pointer-events:none;
 }
 
 .footer-inner{
@@ -167,25 +132,25 @@ flex-direction:column;
 gap:10px;
 font-size:0.85rem;
 }
-
 .footer-left a{
 color:#9CA3AF;
 text-decoration:none;
 }
 
+/* LANG */
 .footer-lang{
 margin-top:20px;
 font-size:0.8rem;
 color:#6B7280;
+cursor:pointer;
+}
+.footer-lang span{
+margin-right:8px;
 }
 
-.footer-contact{
-margin-top:10px;
-font-size:0.85rem;
-}
-
+/* COPY */
 .footer-copy{
-margin-top:20px;
+margin-top:10px;
 font-size:0.75rem;
 color:#6B7280;
 }
@@ -199,36 +164,36 @@ color:#6B7280;
 <div class="logo">Agnopol</div>
 
 <nav class="menu">
-<a href="#">Join</a>
-<a href="about.html">About</a>
-<a href="#">Donate</a>
-<a href="#">Contact</a>
+<a href="#" data-i18n="join">Join</a>
+<a href="about.html" data-i18n="about">About</a>
+<a href="#" data-i18n="donate">Donate</a>
+<a href="#" data-i18n="contact">Contact</a>
 </nav>
 </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
-<h1>Global actions will appear here</h1>
+<h1 data-i18n="hero">Global actions will appear here</h1>
 </section>
 
-<!-- TAGLINE -->
 <div class="tagline">
-<a href="about.html">
-存在之处，世界正在成为世界
+<a href="about.html" data-i18n="tagline">
+Where you stand, the world becomes the world.
 </a>
 </div>
 
-<!-- ACTION -->
 <section class="container">
-<h2 class="section-title">Current Actions</h2>
-<div class="placeholder">Content will be available after launch</div>
+<h2 class="section-title" data-i18n="current">Current Actions</h2>
+<div class="placeholder" data-i18n="placeholder1">
+Content will be available after launch
+</div>
 </section>
 
-<!-- LIVE -->
 <section class="container">
-<h2 class="section-title">Live Activity</h2>
-<div class="placeholder">Real-time actions will appear here</div>
+<h2 class="section-title" data-i18n="live">Live Activity</h2>
+<div class="placeholder" data-i18n="placeholder2">
+Real-time actions will appear here
+</div>
 </section>
 
 <footer>
@@ -238,23 +203,29 @@ color:#6B7280;
 <div class="footer-inner">
 
 <div class="footer-left">
-<a href="about.html">About</a>
+<a href="about.html" data-i18n="about">About</a>
 <a href="#">Archive</a>
 <a href="#">Privacy Policy</a>
 <a href="#">Terms of Use</a>
 <a href="#">Legal</a>
-<a href="#">Contact</a>
 
 <div class="footer-lang">
-EN · FR · DE · ES · IT · JA · KO · ZH-HANT
+<span onclick="setLang('en')">EN</span>
+<span onclick="setLang('fr')">FR</span>
+<span onclick="setLang('de')">DE</span>
+<span onclick="setLang('es')">ES</span>
+<span onclick="setLang('it')">IT</span>
+<span onclick="setLang('ja')">JA</span>
+<span onclick="setLang('ko')">KO</span>
+<span onclick="setLang('zh')">繁體</span>
 </div>
 
-<div class="footer-contact">
-Contact us: contact@agnopol.xyz
+<div style="margin-top:10px;">
+contact@agnopol.xyz
 </div>
 
 <div class="footer-copy">
-© 2026 Agnopol. All rights reserved.
+© 2026 Agnopol
 </div>
 
 </div>
@@ -262,6 +233,44 @@ Contact us: contact@agnopol.xyz
 </div>
 
 </footer>
+
+<script>
+const dict = {
+en:{
+join:"Join",
+about:"About",
+donate:"Donate",
+contact:"Contact",
+hero:"Global actions will appear here",
+tagline:"Where you stand, the world becomes the world.",
+current:"Current Actions",
+live:"Live Activity",
+placeholder1:"Content will be available after launch",
+placeholder2:"Real-time actions will appear here"
+},
+zh:{
+join:"加入",
+about:"关于我们",
+donate:"捐赠",
+contact:"联系我们",
+hero:"全球行动将在此呈现",
+tagline:"存在之处，世界正在成为世界",
+current:"当前行动",
+live:"正在发生",
+placeholder1:"内容将在上线后呈现",
+placeholder2:"实时活动将在此显示"
+}
+};
+
+function setLang(lang){
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+const key=el.getAttribute("data-i18n");
+if(dict[lang] && dict[lang][key]){
+el.innerText=dict[lang][key];
+}
+});
+}
+</script>
 
 </body>
 </html>
