@@ -2,13 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
 <title>Agnopol — Individual actions shaping the world</title>
 <meta name="description" content="An open community gathered by a common ideal to change the world through voices and actions.">
+<meta name="keywords" content="Agnopol, community, global action, petition, environment, human rights">
+
+<link rel="canonical" href="https://agnopol.xyz/">
+<link rel="alternate" hreflang="en" href="https://agnopol.xyz/en/">
+<link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh/">
+<link rel="alternate" hreflang="fr" href="https://agnopol.xyz/fr/">
+<link rel="alternate" hreflang="de" href="https://agnopol.xyz/de/">
+<link rel="alternate" hreflang="es" href="https://agnopol.xyz/es/">
+<link rel="alternate" hreflang="it" href="https://agnopol.xyz/it/">
+<link rel="alternate" hreflang="ja" href="https://agnopol.xyz/ja/">
+<link rel="alternate" hreflang="ko" href="https://agnopol.xyz/ko/">
+<link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Agnopol — Individual actions shaping the world">
+<meta property="og:description" content="An open community gathered by a common ideal to change the world through voices and actions.">
+<meta property="og:url" content="https://agnopol.xyz/">
 
 <style>
-/* === Variables & Reset === */
+/* === Variables & CSS Reset === */
 :root {
   --sea-blue: #005B82;
   --sea-blue-light: #1DA1F2;
@@ -20,9 +37,13 @@
   --bg-light: #f4f4f4;
   --white: #ffffff;
   --border-color: #e0e0e0;
+  --focus-ring: 0 0 0 3px rgba(0, 91, 130, 0.4);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Smooth scrolling for the whole page */
+html { scroll-behavior: smooth; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -33,6 +54,18 @@ body {
 
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+
+/* Screen Reader Only - A11y */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+}
+
+/* Keyboard Accessibility Focus */
+*:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 4px;
+}
 
 /* === Header & Navigation === */
 header {
@@ -55,7 +88,9 @@ header {
   font-weight: 900;
   color: #000;
   letter-spacing: -1px;
+  transition: opacity 0.2s;
 }
+.header-logo:hover { opacity: 0.8; }
 
 /* Language Switcher */
 .header-controls { display: flex; align-items: center; gap: 25px; }
@@ -63,19 +98,28 @@ header {
 .lang-select {
   appearance: none; background: transparent; border: none; font-size: 0.95rem; font-weight: bold; color: var(--text-main); cursor: pointer; padding-right: 15px;
 }
-.lang-select:focus { outline: none; }
+.lang-select:focus-visible { box-shadow: var(--focus-ring); border-radius: 4px; }
 .lang-switcher::after {
   content: '▼'; font-size: 0.6rem; position: absolute; right: 0; top: 50%; transform: translateY(-50%); pointer-events: none;
 }
 
-/* Hamburger Menu */
+/* Silky Smooth Hamburger Menu */
 .hamburger {
   background: none; border: none; cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; gap: 5px; padding: 5px;
 }
-.hamburger .line { height: 3px; border-radius: 2px; transition: all 0.3s ease; }
+.hamburger .line { 
+  height: 3px; border-radius: 2px; 
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, width 0.3s ease, background-color 0.3s ease;
+  transform-origin: center right;
+}
 .hamburger .line-1 { width: 20px; background-color: #000000; }
 .hamburger .line-2 { width: 20px; background-color: var(--sea-blue); }
 .hamburger .line-3 { width: 30px; background-color: var(--pine-green); }
+
+/* Hamburger 'X' State */
+.hamburger.active .line-1 { transform: rotate(-45deg) translate(-2px, -3px); width: 25px; background-color: var(--text-main); }
+.hamburger.active .line-2 { opacity: 0; transform: translateX(10px); }
+.hamburger.active .line-3 { transform: rotate(45deg) translate(-2px, 3px); width: 25px; background-color: var(--text-main); }
 
 /* Dropdown Menu (Smooth Animation) */
 .nav-menu {
@@ -84,7 +128,7 @@ header {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s;
 }
 .nav-menu.active {
   opacity: 1;
@@ -92,66 +136,36 @@ header {
   transform: translateY(0);
 }
 .nav-menu a { padding: 12px 20px; font-size: 0.95rem; font-weight: 600; border-bottom: 1px solid #f0f0f0; cursor: pointer; }
-.nav-menu a:hover { background: var(--bg-light); color: var(--sea-blue); }
+.nav-menu a:hover, .nav-menu a:focus-visible { background: var(--bg-light); color: var(--sea-blue); }
 
 /* === Module 1: Hero Carousel === */
 .hero-module { width: 100%; }
 .hero-top-banner {
-  background-color: var(--sea-blue);
-  color: var(--white);
-  text-align: center;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
+  background-color: var(--sea-blue); color: var(--white); text-align: center; padding: 12px 20px; font-size: 1rem; font-weight: bold; cursor: pointer;
 }
 .hero-top-banner::after { content: " ❯"; font-size: 0.8rem; }
 .hero-image-box {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  background-image: url('https://via.placeholder.com/1200x600?text=Agnopol+Campaign+Image');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: flex-end;
+  position: relative; width: 100%; height: 350px; background-color: #d1d5db; background-image: url('https://via.placeholder.com/1200x600?text=Agnopol+Campaign+Image'); background-size: cover; background-position: center; display: flex; align-items: flex-end;
 }
 .hero-image-overlay {
-  width: 100%;
-  background: rgba(0,0,0,0.6);
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%; background: rgba(0,0,0,0.6); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center;
 }
 .hero-image-title { color: var(--white); font-size: 1.5rem; font-weight: bold; }
 .hero-action-btn {
-  background-color: var(--pine-green);
-  color: var(--white);
-  width: 36px; height: 36px;
-  display: flex; justify-content: center; align-items: center;
-  border-radius: 4px; font-weight: bold; font-size: 1.2rem; cursor: pointer;
+  background-color: var(--pine-green); color: var(--white); width: 36px; height: 36px; display: flex; justify-content: center; align-items: center; border-radius: 4px; font-weight: bold; font-size: 1.2rem; cursor: pointer;
 }
 .hero-dots-bar {
-  background-color: var(--sea-blue-light);
-  height: 40px;
-  display: flex; justify-content: center; align-items: center; gap: 10px;
+  background-color: var(--sea-blue-light); height: 40px; display: flex; justify-content: center; align-items: center; gap: 10px;
 }
-.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+.dot { width: 10px; height: 10px; background: rgba(255,255,255,0.5); border-radius: 50%; border: none; cursor: pointer; }
 .dot.active { background: var(--white); }
 
 .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 .module-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: var(--text-main); }
 
-/* Placeholder Boxes for pre-launch sections */
+/* Placeholder Boxes */
 .placeholder-box {
-  padding: 40px 20px;
-  text-align: center;
-  background: var(--bg-light);
-  color: var(--text-gray);
-  border: 1px dashed var(--border-color);
-  border-radius: 6px;
-  font-size: 0.95rem;
+  padding: 40px 20px; text-align: center; background: var(--bg-light); color: var(--text-gray); border: 1px dashed var(--border-color); border-radius: 6px; font-size: 0.95rem;
 }
 
 /* === Module 2: Live Activity === */
@@ -168,11 +182,12 @@ header {
 .action-form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; }
 .form-input, .form-select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem; }
 .btn-submit { background: var(--pine-green); color: var(--white); border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 4px; cursor: pointer; transition: background 0.2s; }
-.btn-submit:hover { background: var(--pine-green-hover); }
+.btn-submit:hover, .btn-submit:focus-visible { background: var(--pine-green-hover); }
 
 /* === Module 4: Featured Articles === */
 .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-.article-card { border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; }
+.article-card { border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
+.article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 .article-img { height: 160px; background: #e0e0e0; display: flex; justify-content: center; align-items: center; color: var(--text-gray); }
 .article-body { padding: 15px; flex: 1; }
 .article-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 8px; }
@@ -180,11 +195,12 @@ header {
 
 /* === Registration Modal === */
 .modal-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 999;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); opacity: 0; visibility: hidden; display: flex; justify-content: center; align-items: center; z-index: 999; transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.modal-overlay.active { display: flex; }
-.modal-box { background: #fff; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; }
-.modal-close { position: absolute; top: 15px; right: 15px; cursor: pointer; font-size: 1.2rem; font-weight: bold; }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-box { background: #fff; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; position: relative; transform: translateY(-20px); transition: transform 0.3s ease; }
+.modal-overlay.active .modal-box { transform: translateY(0); }
+.modal-close { position: absolute; top: 15px; right: 15px; background: none; border: none; cursor: pointer; font-size: 1.2rem; font-weight: bold; padding: 5px; }
 .modal-box h2 { margin-bottom: 20px; color: var(--sea-blue); }
 .modal-info { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 15px; }
 
@@ -209,14 +225,15 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<header>
+<header role="banner">
   <div class="header-container">
-    <div class="header-logo">AGNOPOL</div>
+    <a href="#top" class="header-logo" aria-label="Agnopol - Return to top">AGNOPOL</a>
+    
     <div class="header-controls">
-      
       <div class="lang-switcher">
+        <label for="languageSelector" class="sr-only">Select Language</label>
         <select class="lang-select" id="languageSelector" onchange="setLang(this.value)">
           <option value="en" selected>English</option>
           <option value="fr">Français</option>
@@ -229,100 +246,115 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
         </select>
       </div>
 
-      <button class="hamburger" onclick="toggleMenu()">
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-        <span class="line line-3"></span>
+      <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle Navigation Menu" onclick="toggleMenu()">
+        <span class="line line-1" aria-hidden="true"></span>
+        <span class="line line-2" aria-hidden="true"></span>
+        <span class="line line-3" aria-hidden="true"></span>
       </button>
 
-      <nav class="nav-menu" id="navMenu">
+      <nav class="nav-menu" id="navMenu" role="navigation" aria-label="Main Navigation">
         <a href="about.html" data-i18n="menu_about">About Us</a>
         <a href="#" data-i18n="menu_donate">Donate</a>
-        <a onclick="openModal()" data-i18n="menu_join">Join Us</a>
+        <a tabindex="0" role="button" onkeydown="if(event.key === 'Enter') openModal()" onclick="openModal()" data-i18n="menu_join">Join Us</a>
       </nav>
     </div>
   </div>
 </header>
 
-<div class="modal-overlay" id="regModal">
-  <div class="modal-box">
-    <div class="modal-close" onclick="closeModal()">✕</div>
-    <h2 data-i18n="modal_title">Join Agnopol</h2>
-    <p class="modal-info" data-i18n="modal_desc">Register with your primary email. Password must be 8 to 16 characters.</p>
-    <form class="action-form">
-      <input type="email" class="form-input" data-placeholder="action_email" placeholder="Email Address" required>
-      <input type="password" class="form-input" data-placeholder="modal_pass" placeholder="Password (8-16 chars)" required minlength="8" maxlength="16" title="Password must be between 8 and 16 characters">
-      <button type="submit" class="btn-submit" data-i18n="modal_btn">Create Account</button>
-    </form>
-  </div>
-</div>
+<main>
 
-<section class="hero-module">
-  <div class="hero-top-banner" data-i18n="hero_banner">Agnopol is an open community gathered by a common ideal to change the world through voices and actions.</div>
-  <div class="hero-image-box">
-    <div class="hero-image-overlay">
-      <div class="hero-image-title" data-i18n="hero_title">Speak for the world, act for yourself!</div>
-      <div class="hero-action-btn">❯</div>
+  <div class="modal-overlay" id="regModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close Registration Dialog">✕</button>
+      <h2 id="modalTitle" data-i18n="modal_title">Join Agnopol</h2>
+      <p class="modal-info" data-i18n="modal_desc">Register with your primary email. Password must be 8 to 16 characters.</p>
+      <form class="action-form">
+        <label for="regEmail" class="sr-only" data-i18n="action_email">Email Address</label>
+        <input type="email" id="regEmail" class="form-input" data-placeholder="action_email" placeholder="Email Address" required aria-required="true">
+        
+        <label for="regPass" class="sr-only" data-i18n="modal_pass">Password</label>
+        <input type="password" id="regPass" class="form-input" data-placeholder="modal_pass" placeholder="Password (8-16 chars)" required aria-required="true" minlength="8" maxlength="16">
+        
+        <button type="submit" class="btn-submit" data-i18n="modal_btn">Create Account</button>
+      </form>
     </div>
   </div>
-  <div class="hero-dots-bar">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-  </div>
-</section>
 
-<section class="container live-section">
-  <div class="ribbon-header" data-i18n="live_title">Happening Now</div>
-  <div class="placeholder-box" data-i18n="live_empty">
-    Real-time actions will appear here after launch.
-  </div>
-</section>
-
-<section class="container">
-  <h2 class="module-title" data-i18n="action_title">Speak for the world, act for yourself</h2>
-  <div class="action-section">
-    <form class="action-form">
-      <input type="text" class="form-input" data-placeholder="action_name" placeholder="Your Name" required>
-      <input type="email" class="form-input" data-placeholder="action_email" placeholder="Your Email" required>
-      <select class="form-select" id="countrySelect" required>
-        <option value="" disabled selected data-i18n="action_country">Select your country/region</option>
-        <option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="CV">Cabo Verde</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CD">Congo (Democratic Republic)</option><option value="CG">Congo (Republic)</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Curaçao</option><option value="CY">Cyprus</option><option value="CZ">Czechia</option><option value="CI">Côte d'Ivoire</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="SZ">Eswatini</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KP">Korea (North)</option><option value="KR">Korea (South)</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Lao People's Democratic Republic</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macao</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="MK">North Macedonia</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine, State of</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RO">Romania</option><option value="RU">Russian Federation</option><option value="RW">Rwanda</option><option value="RE">Réunion</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">Sao Tome and Principe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syrian Arab Republic</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Viet Nam</option><option value="VG">Virgin Islands (British)</option><option value="VI">Virgin Islands (U.S.)</option><option value="WF">Wallis and Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
-        <option value="OTHER" data-i18n="action_other">Other</option>
-      </select>
-      <button type="submit" class="btn-submit" data-i18n="action_btn">Confirm Action</button>
-    </form>
-  </div>
-</section>
-
-<section class="container">
-  <h2 class="module-title" data-i18n="article_title">Featured Articles & Reports</h2>
-  <div class="article-grid">
-    <div class="article-card">
-      <div class="article-img" data-i18n="img_placeholder">Image</div>
-      <div class="article-body">
-        <h3 class="article-title" data-i18n="art1_title">2026 Global Environmental Report</h3>
-        <p class="article-desc" data-i18n="art1_desc">Small actions gather into oceans. How individual actions reversed the ecological crisis this year.</p>
+  <section class="hero-module" aria-label="Featured Campaign">
+    <div class="hero-top-banner" data-i18n="hero_banner" role="button" tabindex="0">
+      Agnopol is an open community gathered by a common ideal to change the world through voices and actions.
+    </div>
+    <div class="hero-image-box" role="img" aria-label="Crowd of people engaging in community action">
+      <div class="hero-image-overlay">
+        <h1 class="hero-image-title" data-i18n="hero_title">Speak for the world, act for yourself!</h1>
+        <button class="hero-action-btn" aria-label="View campaign details">❯</button>
       </div>
     </div>
-    <div class="article-card">
-      <div class="article-img" data-i18n="img_placeholder">Image</div>
-      <div class="article-body">
-        <h3 class="article-title" data-i18n="art2_title">Borderless Medical Aid Network</h3>
-        <p class="article-desc" data-i18n="art2_desc">Exploring how decentralized organizations provide support through physical barriers in humanitarian crises.</p>
-      </div>
+    <div class="hero-dots-bar" aria-label="Carousel Navigation">
+      <button class="dot active" aria-label="Slide 1"></button>
+      <button class="dot" aria-label="Slide 2"></button>
+      <button class="dot" aria-label="Slide 3"></button>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="container">
-  <h2 class="module-title" data-i18n="comm_title">Community Forum</h2>
-  <div class="placeholder-box" data-i18n="comm_empty">
-    Community forum will be available soon.
-  </div>
-</section>
+  <section class="container live-section" aria-labelledby="liveHeader">
+    <div id="liveHeader" class="ribbon-header" data-i18n="live_title">Happening Now</div>
+    <div class="placeholder-box" data-i18n="live_empty">
+      Real-time actions will appear here after launch.
+    </div>
+  </section>
 
-<footer>
+  <section class="container" aria-labelledby="actionHeader">
+    <h2 id="actionHeader" class="module-title" data-i18n="action_title">Speak for the world, act for yourself</h2>
+    <div class="action-section">
+      <form class="action-form">
+        <label for="actionName" class="sr-only" data-i18n="action_name">Your Name</label>
+        <input type="text" id="actionName" class="form-input" data-placeholder="action_name" placeholder="Your Name" required aria-required="true">
+        
+        <label for="actionEmail" class="sr-only" data-i18n="action_email">Your Email</label>
+        <input type="email" id="actionEmail" class="form-input" data-placeholder="action_email" placeholder="Your Email" required aria-required="true">
+        
+        <label for="countrySelect" class="sr-only" data-i18n="action_country">Select your country/region</label>
+        <select class="form-select" id="countrySelect" required aria-required="true">
+          <option value="" disabled selected data-i18n="action_country">Select your country/region</option>
+          <option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="CV">Cabo Verde</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CD">Congo (Democratic Republic)</option><option value="CG">Congo (Republic)</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Curaçao</option><option value="CY">Cyprus</option><option value="CZ">Czechia</option><option value="CI">Côte d'Ivoire</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="SZ">Eswatini</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KP">Korea (North)</option><option value="KR">Korea (South)</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Lao People's Democratic Republic</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macao</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="MK">North Macedonia</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine, State of</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RO">Romania</option><option value="RU">Russian Federation</option><option value="RW">Rwanda</option><option value="RE">Réunion</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">Sao Tome and Principe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syrian Arab Republic</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VE">Venezuela</option><option value="VN">Viet Nam</option><option value="VG">Virgin Islands (British)</option><option value="VI">Virgin Islands (U.S.)</option><option value="WF">Wallis and Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
+          <option value="OTHER" data-i18n="action_other">Other</option>
+        </select>
+        <button type="submit" class="btn-submit" data-i18n="action_btn">Confirm Action</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="container" aria-labelledby="articlesHeader">
+    <h2 id="articlesHeader" class="module-title" data-i18n="article_title">Featured Articles & Reports</h2>
+    <div class="article-grid">
+      <article class="article-card">
+        <div class="article-img" aria-hidden="true" data-i18n="img_placeholder">Image</div>
+        <div class="article-body">
+          <h3 class="article-title" data-i18n="art1_title">2026 Global Environmental Report</h3>
+          <p class="article-desc" data-i18n="art1_desc">Small actions gather into oceans. How individual actions reversed the ecological crisis this year.</p>
+        </div>
+      </article>
+      <article class="article-card">
+        <div class="article-img" aria-hidden="true" data-i18n="img_placeholder">Image</div>
+        <div class="article-body">
+          <h3 class="article-title" data-i18n="art2_title">Borderless Medical Aid Network</h3>
+          <p class="article-desc" data-i18n="art2_desc">Exploring how decentralized organizations provide support through physical barriers in humanitarian crises.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="container" aria-labelledby="forumHeader">
+    <h2 id="forumHeader" class="module-title" data-i18n="comm_title">Community Forum</h2>
+    <div class="placeholder-box" data-i18n="comm_empty">
+      Community forum will be available soon.
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-links">
@@ -332,15 +364,15 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
         <a href="#" data-i18n="foot_privacy">Privacy Policy</a>
         <a href="#" data-i18n="foot_terms">Terms of Use</a>
         <a href="mailto:contact@agnopol.xyz" data-i18n="foot_contact">Contact Agnopol</a>
-        <a href="#"><span data-i18n="foot_start">Start a Petition</span> <span class="badge-plus">+</span></a>
+        <a href="#"><span data-i18n="foot_start">Start a Petition</span> <span class="badge-plus" aria-hidden="true">+</span></a>
       </div>
       
       <div class="footer-right">
-        <div class="social-icons">
-          <a href="#" class="social-icon">f</a>
-          <a href="#" class="social-icon">𝕏</a>
+        <div class="social-icons" aria-label="Social Media Links">
+          <a href="#" class="social-icon" aria-label="Facebook">f</a>
+          <a href="#" class="social-icon" aria-label="X (Twitter)">𝕏</a>
         </div>
-        <div class="footer-logo">AGNOPOL</div>
+        <div class="footer-logo" aria-hidden="true">AGNOPOL</div>
       </div>
     </div>
     <div class="footer-copyright" data-i18n="foot_copy">
@@ -350,16 +382,35 @@ footer { background-color: var(--avaaz-dark); color: #fff; padding: 40px 20px; f
 </footer>
 
 <script>
-// Menu Logic
+// Menu Accessibility & Logic
 function toggleMenu() {
-  document.getElementById('navMenu').classList.toggle('active');
+  const menu = document.getElementById('navMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+  
+  if(isExpanded) {
+    menu.classList.remove('active');
+    btn.classList.remove('active');
+    btn.setAttribute('aria-expanded', 'false');
+  } else {
+    menu.classList.add('active');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded', 'true');
+  }
 }
 
-// Modal Logic
+// Modal Accessibility & Logic
 function openModal() {
-  document.getElementById('regModal').classList.add('active');
+  const modal = document.getElementById('regModal');
+  modal.classList.add('active');
+  document.getElementById('regEmail').focus(); // Accessibility focus trap setup
+  
+  // Close menu if open
   document.getElementById('navMenu').classList.remove('active');
+  document.getElementById('hamburgerBtn').classList.remove('active');
+  document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
 }
+
 function closeModal() {
   document.getElementById('regModal').classList.remove('active');
 }
@@ -483,20 +534,19 @@ const dict = {
 function setLang(lang) {
   const data = dict[lang] || dict['en'];
   
-  // 更新所有的普通文本
+  // Set Text Content
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (data[key]) el.innerText = data[key];
   });
   
-  // 更新所有的 placeholder
+  // Set Placeholders
   document.querySelectorAll("[data-placeholder]").forEach(el => {
     const key = el.getAttribute("data-placeholder");
     if (data[key]) el.setAttribute("placeholder", data[key]);
   });
 
-  // 使用浏览器原生 API 自动翻译国家列表！
-  // 这里做一个简单的语言代码映射，确保中文输出繁体 (zh-Hant)
+  // Native Browser API for Country Translations
   const localeMap = {
     'en': 'en', 'zh': 'zh-Hant', 'fr': 'fr', 'de': 'de', 
     'es': 'es', 'it': 'it', 'ja': 'ja', 'ko': 'ko'
@@ -506,12 +556,11 @@ function setLang(lang) {
   try {
     const displayNames = new Intl.DisplayNames([targetLocale], { type: 'region' });
     document.querySelectorAll("#countrySelect option").forEach(opt => {
-      // 排除默认占位符和我们自定义的 "OTHER"
       if (opt.value && opt.value !== "OTHER") {
         try {
           opt.innerText = displayNames.of(opt.value);
         } catch (e) {
-          // 如果遇到无法识别的冷门国家代码，保留原样
+          // Keep raw value if the country code is somehow unsupported
         }
       }
     });
@@ -520,7 +569,7 @@ function setLang(lang) {
   }
 }
 
-// 页面加载时初始化为英语
+// Ensure default runs on load
 setLang('en');
 </script>
 
