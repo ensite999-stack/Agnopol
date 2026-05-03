@@ -9,7 +9,6 @@
 
 <link rel="canonical" href="https://agnopol.xyz/">
 
-<!-- hreflang -->
 <link rel="alternate" hreflang="en" href="https://agnopol.xyz/en/">
 <link rel="alternate" hreflang="fr" href="https://agnopol.xyz/fr/">
 <link rel="alternate" hreflang="de" href="https://agnopol.xyz/de/">
@@ -20,13 +19,11 @@
 <link rel="alternate" hreflang="zh-Hant" href="https://agnopol.xyz/zh-hant/">
 <link rel="alternate" hreflang="x-default" href="https://agnopol.xyz/">
 
-<!-- OpenGraph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Agnopol">
 <meta property="og:description" content="Individual actions shaping the world.">
 <meta property="og:image" content="https://agnopol.xyz/og.jpg">
 
-<!-- JSON-LD -->
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -38,91 +35,224 @@
 </script>
 
 <style>
-:root{
-  --blue:#4DA3FF;
-  --green:#2F6B4F;
-  --text:#0F1720;
-  --sub:#6B7280;
-  --border:rgba(0,0,0,0.06);
+:root {
+  --sea-blue: #005B82;    /* 海蓝 */
+  --pine-green: #2C5F2D;  /* 松林绿 */
+  --pine-green-dark: #1F451F;
+  --text-main: #1F2937;
+  --text-muted: #6B7280;
+  --bg-light: #F3F4F6;
+  --white: #FFFFFF;
+  --border: rgba(0,0,0,0.1);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Helvetica,Arial,sans-serif;
-  background:#fff;
-  color:var(--text);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", Helvetica, Arial, sans-serif;
+  background: var(--white);
+  color: var(--text-main);
+  line-height: 1.5;
 }
 
 /* Header */
-header{
-  position:sticky; top:0; z-index:10;
-  background:#fff;
-  border-bottom:1px solid var(--border);
+header {
+  position: sticky; 
+  top: 0; 
+  z-index: 10;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-.header-inner{
-  max-width:1100px; margin:auto;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:14px 20px;
+.header-inner {
+  max-width: 1100px; 
+  margin: auto;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 16px 20px;
 }
-.logo{ font-weight:900; font-size:1.6rem; letter-spacing:-0.5px; }
-.menu{ display:flex; gap:18px; font-size:0.9rem; }
-.menu a{ color:var(--text); text-decoration:none; }
+.logo { 
+  font-weight: 900; 
+  font-size: 1.8rem; 
+  letter-spacing: -0.5px; 
+  color: var(--sea-blue);
+}
+.menu { display: flex; gap: 20px; font-size: 1rem; font-weight: 500; }
+.menu a { color: var(--text-main); text-decoration: none; transition: color 0.2s; }
+.menu a:hover { color: var(--sea-blue); }
 
-/* Hero (热点占位) */
-.hero{
-  height:380px;
-  background:linear-gradient(135deg,var(--blue),var(--green));
-  display:flex; align-items:flex-end;
+/* Hero Section (Avaaz Style layout) */
+.hero {
+  background: var(--sea-blue);
+  color: var(--white);
+  padding: 60px 20px;
 }
-.hero-inner{
-  max-width:1100px; margin:auto; width:100%;
-  padding:22px 20px; color:#fff;
+.hero-inner {
+  max-width: 1100px; 
+  margin: auto; 
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.hero h1{ font-size:1.6rem; font-weight:700; }
-.hero p{ margin-top:8px; opacity:.9; }
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+.hero-text h1 { 
+  font-size: 2.8rem; 
+  font-weight: 800; 
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.hero-text p { 
+  font-size: 1.2rem; 
+  opacity: 0.9; 
+  margin-bottom: 24px;
+}
+.tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #A5D6F3;
+}
 
-/* Tagline */
-.tagline{ text-align:center; margin:28px 0 10px; }
-.tagline a{ color:var(--sub); text-decoration:none; font-size:.95rem; }
-
-/* Sections */
-.container{ max-width:1100px; margin:auto; padding:0 20px; }
-.section-title{ margin:40px 0 16px; font-weight:600; }
-.placeholder{
-  border:1px dashed var(--border);
-  border-radius:12px;
-  padding:28px; text-align:center; color:var(--sub);
+/* Action/Petition Box */
+.action-box {
+  background: var(--white);
+  color: var(--text-main);
+  padding: 30px;
+  border-radius: 8px;
+  width: 380px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+.action-box h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--sea-blue);
+}
+.action-box p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.btn-primary {
+  background: var(--pine-green);
+  color: var(--white);
+  border: none;
+  width: 100%;
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: var(--pine-green-dark);
 }
 
-/* Footer (Avaaz-like) */
-footer{
-  background:#000; color:#A1A1AA;
-  margin-top:80px; position:relative; overflow:hidden;
+/* Stats Bar */
+.stats-bar {
+  background: var(--bg-light);
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sea-blue);
+  border-bottom: 1px solid var(--border);
 }
-.footer-bg{
-  position:absolute; right:-40px; bottom:-20px;
-  font-size:11rem; font-weight:900;
-  color:#fff; opacity:.025; letter-spacing:-4px;
-  pointer-events:none;
-}
-.footer-inner{
-  max-width:1100px; margin:auto;
-  padding:60px 20px;
-  display:flex;
-}
-.footer-left{
-  display:flex; flex-direction:column; gap:12px; font-size:.85rem;
-}
-.footer-left a{ color:#A1A1AA; text-decoration:none; }
-.footer-left a:hover{ color:#fff; }
 
-/* Language above copyright */
-.footer-lang{ margin-top:25px; font-size:.8rem; color:#6B7280; }
-.footer-lang span{ margin-right:12px; cursor:pointer; }
+/* Campaigns Grid */
+.container { 
+  max-width: 1100px; 
+  margin: 50px auto; 
+  padding: 0 20px; 
+}
+.section-title { 
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--sea-blue);
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--pine-green);
+  display: inline-block;
+  padding-bottom: 8px;
+}
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+.campaign-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.campaign-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+}
+.campaign-img {
+  background: #E5E7EB;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+.campaign-content {
+  padding: 20px;
+}
+.campaign-content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+.campaign-content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.read-more {
+  color: var(--sea-blue);
+  font-weight: 600;
+  text-decoration: none;
+}
 
-.footer-contact{ margin-top:12px; }
-.footer-copy{ margin-top:12px; font-size:.75rem; color:#6B7280; }
+/* Footer (Simplified) */
+footer {
+  background: #111827; 
+  color: #9CA3AF;
+  margin-top: 80px; 
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-inner {
+  max-width: 1100px; 
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.footer-contact { 
+  font-size: 1rem; 
+  color: #FFFFFF;
+}
+.footer-contact a {
+  color: #A5D6F3;
+  text-decoration: none;
+}
+.footer-copy { 
+  font-size: 0.85rem; 
+}
+
+@media (max-width: 768px) {
+  .hero-inner { flex-direction: column; text-align: center; }
+  .action-box { width: 100%; }
+}
 </style>
 </head>
 
@@ -134,143 +264,92 @@ footer{
     <nav class="menu">
       <a href="#" data-i18n="join">Join</a>
       <a href="about.html" data-i18n="about">About</a>
-      <a href="#" data-i18n="donate">Donate</a>
-      <a href="#" data-i18n="contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<!-- Hero -->
 <section class="hero">
   <div class="hero-inner">
-    <h1 data-i18n="hero_title">A featured action will appear here</h1>
-    <p data-i18n="hero_sub">A current situation and a way to participate will be presented.</p>
+    <div class="hero-text">
+      <h1 data-i18n="hero_title">A featured action will appear here</h1>
+      <p data-i18n="hero_sub">A current situation and a way to participate will be presented to drive real-world impact.</p>
+      <div class="tagline" data-i18n="tagline">Where you stand, the world becomes the world.</div>
+    </div>
+    
+    <div class="action-box">
+      <h3 data-i18n="action_title">Take Action Now</h3>
+      <p data-i18n="action_desc">Join thousands of others in making a difference today. Your voice matters.</p>
+      <button class="btn-primary" data-i18n="action_btn">Sign the Petition</button>
+    </div>
   </div>
 </section>
 
-<!-- Tagline -->
-<div class="tagline">
-  <a href="about.html" data-i18n="tagline">
-    Where you stand, the world becomes the world.
-  </a>
+<div class="stats-bar" data-i18n="stats">
+  1,204,500 actions taken worldwide.
 </div>
 
-<!-- Current -->
 <section class="container">
   <h2 class="section-title" data-i18n="current">Current Actions</h2>
-  <div class="placeholder" data-i18n="ph1">Content will be available after launch</div>
-</section>
-
-<!-- Live -->
-<section class="container">
-  <h2 class="section-title" data-i18n="live">Live Activity</h2>
-  <div class="placeholder" data-i18n="ph2">Real-time actions will appear here</div>
+  <div class="campaign-grid">
+    <div class="campaign-card">
+      <div class="campaign-img">Image Placeholder</div>
+      <div class="campaign-content">
+        <h4>Protect Global Forests</h4>
+        <p>Urge leaders to commit to zero deforestation targets before the upcoming summit.</p>
+        <a href="#" class="read-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-img">Image Placeholder</div>
+      <div class="campaign-content">
+        <h4>Clean Ocean Initiative</h4>
+        <p>Support the binding treaty to end plastic pollution in our international waters.</p>
+        <a href="#" class="read-more">Learn more →</a>
+      </div>
+    </div>
+    <div class="campaign-card">
+      <div class="campaign-img">Image Placeholder</div>
+      <div class="campaign-content">
+        <h4>Defend Human Rights</h4>
+        <p>Stand in solidarity with frontline defenders protecting vulnerable communities.</p>
+        <a href="#" class="read-more">Learn more →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <div class="footer-bg">AGNOPOL</div>
-
   <div class="footer-inner">
-    <div class="footer-left">
-      <a href="about.html" data-i18n="about">About</a>
-      <a href="#" data-i18n="archive">Archive</a>
-      <a href="#" data-i18n="privacy">Privacy Policy</a>
-      <a href="#" data-i18n="terms">Terms of Use</a>
-      <a href="#" data-i18n="legal">Legal</a>
-      <a href="#" data-i18n="contact">Contact</a>
-
-      <div class="footer-lang">
-        <span onclick="setLang('en')">EN</span>
-        <span onclick="setLang('fr')">FR</span>
-        <span onclick="setLang('de')">DE</span>
-        <span onclick="setLang('es')">ES</span>
-        <span onclick="setLang('it')">IT</span>
-        <span onclick="setLang('ja')">JA</span>
-        <span onclick="setLang('ko')">KO</span>
-        <span onclick="setLang('zh')">繁體</span>
-      </div>
-
-      <div class="footer-contact">Contact us: contact@agnopol.xyz</div>
-      <div class="footer-copy">© 2026 Agnopol. All rights reserved.</div>
-    </div>
+    <div class="footer-contact">Contact us: <a href="mailto:contact@agnopol.xyz">contact@agnopol.xyz</a></div>
+    <div class="footer-copy">© 2026 Agnopol. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
 const dict = {
   en:{
-    join:"Join",about:"About",donate:"Donate",contact:"Contact",
+    join:"Join", about:"About",
     hero_title:"A featured action will appear here",
-    hero_sub:"A current situation and a way to participate will be presented.",
+    hero_sub:"A current situation and a way to participate will be presented to drive real-world impact.",
     tagline:"Where you stand, the world becomes the world.",
-    current:"Current Actions",live:"Live Activity",
-    ph1:"Content will be available after launch",
-    ph2:"Real-time actions will appear here",
-    archive:"Archive",privacy:"Privacy Policy",terms:"Terms of Use",legal:"Legal"
+    action_title:"Take Action Now",
+    action_desc:"Join thousands of others in making a difference today. Your voice matters.",
+    action_btn:"Sign the Petition",
+    stats:"1,204,500 actions taken worldwide.",
+    current:"Current Actions"
   },
-  fr:{ join:"Rejoindre",about:"À propos",donate:"Donner",contact:"Contact",
-    hero_title:"Une action mise en avant apparaîtra ici",
-    hero_sub:"Une situation actuelle et un moyen d’y participer seront présentés.",
-    tagline:"Là où vous êtes, le monde devient le monde.",
-    current:"Actions en cours",live:"Activité en direct",
-    ph1:"Le contenu sera disponible après le lancement",
-    ph2:"Les activités en temps réel apparaîtront ici",
-    archive:"Archives",privacy:"Confidentialité",terms:"Conditions",legal:"Mentions légales"
-  },
-  de:{ join:"Mitmachen",about:"Über uns",donate:"Spenden",contact:"Kontakt",
-    hero_title:"Eine hervorgehobene Aktion erscheint hier",
-    hero_sub:"Eine aktuelle Situation und eine Teilnahmeoption werden gezeigt.",
-    tagline:"Wo du stehst, wird die Welt zur Welt.",
-    current:"Aktuelle Aktionen",live:"Live-Aktivität",
-    ph1:"Inhalte sind nach dem Start verfügbar",
-    ph2:"Echtzeit-Aktivitäten erscheinen hier",
-    archive:"Archiv",privacy:"Datenschutz",terms:"Nutzungsbedingungen",legal:"Rechtliches"
-  },
-  es:{ join:"Unirse",about:"Acerca de",donate:"Donar",contact:"Contacto",
-    hero_title:"Aquí aparecerá una acción destacada",
-    hero_sub:"Se mostrará una situación actual y cómo participar.",
-    tagline:"Donde estás, el mundo se convierte en mundo.",
-    current:"Acciones actuales",live:"Actividad en vivo",
-    ph1:"El contenido estará disponible tras el lanzamiento",
-    ph2:"La actividad en tiempo real aparecerá aquí",
-    archive:"Archivo",privacy:"Privacidad",terms:"Términos",legal:"Legal"
-  },
-  it:{ join:"Unisciti",about:"Chi siamo",donate:"Dona",contact:"Contatti",
-    hero_title:"Qui apparirà un’azione in evidenza",
-    hero_sub:"Verranno mostrati una situazione attuale e come partecipare.",
-    tagline:"Dove ti trovi, il mondo diventa mondo.",
-    current:"Azioni correnti",live:"Attività in tempo reale",
-    ph1:"I contenuti saranno disponibili dopo il lancio",
-    ph2:"Le attività in tempo reale appariranno qui",
-    archive:"Archivio",privacy:"Privacy",terms:"Termini",legal:"Legale"
-  },
-  ja:{ join:"参加",about:"私たちについて",donate:"寄付",contact:"お問い合わせ",
-    hero_title:"ここに注目のアクションが表示されます",
-    hero_sub:"現在の状況と参加方法が表示されます。",
-    tagline:"あなたがいる場所で、世界は世界になる。",
-    current:"現在のアクション",live:"ライブ活動",
-    ph1:"コンテンツは公開後に表示されます",
-    ph2:"リアルタイムの活動が表示されます",
-    archive:"アーカイブ",privacy:"プライバシー",terms:"利用規約",legal:"法的情報"
-  },
-  ko:{ join:"참여",about:"소개",donate:"기부",contact:"문의",
-    hero_title:"여기에 주요 행동이 표시됩니다",
-    hero_sub:"현재 상황과 참여 방법이 표시됩니다.",
-    tagline:"당신이 있는 곳에서, 세계는 세계가 된다.",
-    current:"현재 행동",live:"실시간 활동",
-    ph1:"출시 후 콘텐츠가 표시됩니다",
-    ph2:"실시간 활동이 표시됩니다",
-    archive:"아카이브",privacy:"개인정보",terms:"이용약관",legal:"법적 고지"
-  },
-  zh:{ join:"加入",about:"關於我們",donate:"捐贈",contact:"聯絡我們",
+  zh:{ 
+    join:"加入", about:"關於我們",
     hero_title:"此處將顯示重點行動",
-    hero_sub:"將呈現當前情況與參與方式",
+    hero_sub:"將呈現當前情況與參與方式，以推動現實世界的影響。",
     tagline:"存在之處，世界正在成為世界",
-    current:"當前行動",live:"正在發生",
-    ph1:"內容將於上線後呈現",
-    ph2:"即時活動將顯示於此",
-    archive:"檔案",privacy:"隱私權政策",terms:"使用條款",legal:"法律"
+    action_title:"立即採取行動",
+    action_desc:"與成千上萬的人一起在今天做出改變。你的聲音很重要。",
+    action_btn:"簽署請願書",
+    stats:"全球已採取 1,204,500 次行動。",
+    current:"當前行動"
   }
+  // Other languages can be added back here following the same structure
 };
 
 function setLang(lang){
@@ -281,6 +360,9 @@ function setLang(lang){
     }
   });
 }
+
+// Automatically detect browser language or set default
+// setLang('zh'); 
 </script>
 
 </body>
